@@ -376,7 +376,7 @@ S = \left\{
 \]
 Vale:
 \begin{align*}
-[c^{\pr}]_n &= [c + [n,m]_k ]_n \\ 
+[c^{\pr}]_n &= [c + k[n,m]]_n \\ 
 &= [c]_n + [k]_n [[n,m]]_n \\
 &= [a]_n + \stkout{[k]_n [0]_n} \ \ \leftarrow\scriptstyle{ \text{$[n,m]$ multiplo di n}}
 \end{align*}
@@ -409,8 +409,8 @@ c^{\pr} - c = (h^{\pr} - h)n &= (k^{\pr} - k)m \\
 \renewcommand\qedsymbol{$\square$}
 \noindent\textbf{Lemma.} \textit{Siano $\alpha, \beta \in \znz$. Allora:
 \begin{enumerate}
-\item $\quad \alpha, \beta \in \znz,\qquad(\alpha\beta)^{-1} = \beta^{-1} \alpha^{-1}$
-\item $\quad \alpha^{-1} \in \znz,\qquad (\alpha^{-1})^{-1} = \alpha $
+\item $\quad \forall \alpha, \beta \in \znz,\qquad(\alpha\beta)^{-1} = \beta^{-1} \alpha^{-1}$
+\item $\quad \forall \alpha^{-1} \in \znz,\qquad (\alpha^{-1})^{-1} = \alpha $
 \end{enumerate}
 }\begin{proof} Vale:
 \begin{enumerate}
@@ -443,7 +443,7 @@ Proviamo che $ L_{\alpha}$ è una bigezione. Mostriamo che è iniettiva (la surg
 \alpha\beta_1 = L_{\alpha}(\beta_1) &= L_{\alpha}(\beta_2) = \alpha\beta_2\\
 \implica \beta_1 = (\alpha^{-1}\alpha)\beta_1 = (\alpha^{-1})&(\alpha\beta_1) = (\alpha^{-1})(\alpha\beta_2) = \beta_2
 \end{align*}
-Sia ora $\{\beta_1, \beta_2, \ldots , \beta_k\} \in \znz$ con $k = \phi(n)$. Applicando $ L_{\alpha}$ si ottiene
+Sia ora $\{\beta_1, \beta_2, \ldots , \beta_k\} = \znz$ con $k = \phi(n)$. Applicando $ L_{\alpha}$ si ottiene
 $$\{\alpha\beta_1, \alpha\beta_2, \ldots , \alpha\beta_k\} = \alpha^k(\beta_1, \beta_2, \ldots , \beta_k)$$
 Allora $ L_{\alpha}$ non è altro che una permutazione, per cui possiamo scrivere:
 $$ (\beta_1, \beta_2, \ldots , \beta_k) = \alpha^k(\beta_1, \beta_2, \ldots , \beta_k)$$
@@ -513,7 +513,7 @@ Siano $u, v, w \in V$, $\til$ la relazione d'equivalenza. Vale:
 \begin{enumerate}
 \item è vera in quanto $(u)$ è un cammino che congiunge $u$ a $u$.
 \item è vera in quanto se $u\ \til\ v$ esiste una passeggiata $P = (v_0,\ldots, v_n)$ tale che $u = v_0$ e $v = v_n$. Ma allora $P^{\pr} = (v_n, v_{n-1},\ldots ,v_0)$ è una passeggiata, dove vertici consecutivi in $P$ lo sono anche in $P^{\pr}$ (anche se in ordine inverso).
-\item è vera in quanto se $u\ \til\ v$ e $v\ \til\ w$ allora esistono due passeggiate $P_1 = (v_0,\ldots ,v_n), P_2 = (u_0,\ldots, u_m)$ dove $u = v_0,\ v = v_n = u_0,\ w = u_m$. Possiamo definire una terza passeggiata $P_3 = (v_0,\ldots ,v_n,u_1,\ldots ,u_m)$ costruita come unione delle precedenti; $P_3$ è una passeggiata in quanto vertici consecutivi in $P_3$ lo sono o in $P_1$ o in $P_2$, e i primi e ultimi vertici della passeggiata sono rispettivamente $u$ e $w$.
+\item è vera in quanto se $u\ \til\ v$ e $v\ \til\ w$ allora esistono due passeggiate $P_1 = (v_0,\ldots ,v_n), P_2 = (w_0,\ldots, w_m)$ dove $u = v_0,\ v = v_n = w_0,\ w = w_m$. Possiamo definire una terza passeggiata $P_3 = (v_0,\ldots ,v_n,w_1,\ldots ,w_m)$ costruita come unione delle precedenti; $P_3$ è una passeggiata in quanto vertici consecutivi in $P_3$ lo sono o in $P_1$ o in $P_2$, e i primi e ultimi vertici della passeggiata sono rispettivamente $u$ e $w$.
 \end{enumerate}
 \end{proof}
 
@@ -589,10 +589,10 @@ Procediamo per induzione su $|V(T)|$.
 \baseinduzalbero{1}
 \\ Un grafo con 1 vertice e 0 lati è un albero per definizione.
 \induzalbero{2}\nopagebreak
-\\ Sia $T$ un grafo connesso che soddisfa la formula di Eulero. Supponiamo per assurdo che $T$ non abbia foglie, ovvero che $deg(v) \ge 2 \forall v \in V(T)$. Allora
+\\ Sia $T$ un grafo connesso che soddisfa la formula di Eulero. Supponiamo per assurdo che $T$ non abbia foglie, ovvero che $deg(v) \ge 2 \ \ \forall v \in V(T)$. Allora
 \begin{align*}
 |V(T)| - 1 &= \frac{1}{2} \sum_{v \in V} deg(V) \\ 
-2\ |V(T) | -2 &= \sum_{v \in V} deg(V) \ge 2 \ |V(T)|
+2\ |V(T) | -2 &= \sum_{v \in V} deg(V) \ge \underbrace{2 \ |V(T)|}_{deg(V) \ge 2 \ \forall v}
 \end{align*}
 che è un assurdo. Allora $T$ ha almeno una foglia. Se consideriamo $v \in V(T)$ foglia, $T-v$ è ancora connesso e vale Eulero. Allora per ipotesi induttiva $T - v$ è un albero $\implica$ $T$ è un albero.
 \end{proof}
