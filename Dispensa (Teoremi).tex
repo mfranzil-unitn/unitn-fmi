@@ -1,4 +1,4 @@
-\documentclass[12pt,twoside]{article}
+\documentclass[12pt,twoscolu]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
@@ -64,7 +64,7 @@
  
 \begin{proof}
 Supponiamo esista $A\subset\N$ dove $\nexists \min A$.
- Sia $B \coloneqq\N \backslash A$. Dimostriamo che $B = \N$ e A$ = \emptyset$.
+ Sia $B \coloneqq\N \backslash A$. Dimostriamo che $B = \N$ e $A = \emptyset$.
  Procediamo per induzione di prima forma. Sia $\{0, 1, \ldots ,n\} \subset B \ \forall n\in\N$, ovvero $P(n) = (\{0, 1, \ldots ,n\} \subset B)$ è vera $\nin$.
 \baseinduz{0}
 \\$\{0\}\subset B \sesolose 0 \in B \sesolose 0 \not\in A$.
@@ -233,7 +233,7 @@ r = n - qd &= n - q(xn+ym) \\
 &= n - qnx - qmy \\
 &= n\underbrace{(1-qx)}_{x^{\pr}} + m\underbrace{(-qy)}_{y^{\pr}}
 \end{align*}
-Allora $r \in S$, ma ciò è assurdo. Quindi $r \ne S$.
+Allora $r \in S$, ma ciò è assurdo perché $r < d = \min S$. Quindi $r = 0$ e $d|n$. Analogamente si dimostra $d | m$.
 \end{proof}
 
 \begin{theorem}[Esistenza e unicità del minimo comune multiplo]
@@ -420,7 +420,6 @@ c^{\pr} - c = (h^{\pr} - h)n &= (k^{\pr} - k)m \\
 \end{enumerate}
 \end{proof}
 
-
 \begin{theorem}[Teorema di Fermat-Eulero]
 Sia $n > 0$. $\forall [a]_n \in \znz$, vale: 
 \begin{align*}
@@ -431,25 +430,29 @@ Equivalentemente:
 a^{\phi(n)} \equiv 1 \ (mod \ n ), \qquad \forall a \in \Z, \text{ con } (a, n) = 1
 \end{align*}
 \end{theorem}
+
 \renewcommand\qedsymbol{$\blacksquare$}
 \begin{proof}
 Definiamo:
 \begin{align*}
-L_{\alpha}:\quad \znzbig &\longrightarrow \znz \\
+L_{\alpha}:\quad \znz &\longrightarrow \znz \\
 \beta \quad&\longmapsto \quad\alpha\beta
 \end{align*}
 $L_{\alpha}$ è ben definita per il lemma precedente.
 Proviamo che $ L_{\alpha}$ è una bigezione. Mostriamo che è iniettiva (la surgettività è dimostrata perché gli insiemi di partenza e arrivo coincidono, conseguenza del Lemma dei Cassetti). Supponiamo $\exists \beta_1, \beta_2 \in \znz$:
 \begin{align*}
 \alpha\beta_1 = L_{\alpha}(\beta_1) &= L_{\alpha}(\beta_2) = \alpha\beta_2\\
-\implica \beta_1 = (\alpha^{-1}\alpha)\beta_1 = (\alpha^{-1})&(\alpha\beta_1) = (\alpha^{-1})(\alpha\beta_2) = \beta_2
+\implica \beta_1 = (\alpha^{-1}\alpha)\beta_1 = (\alpha^{-1})&(\alpha\beta_1) = (\alpha^{-1})(\alpha\beta_2) = (\alpha^{-1}\alpha)\beta_2  = \beta_2
 \end{align*}
-Sia ora $\{\beta_1, \beta_2, \ldots , \beta_k\} = \znz$ con $k = \phi(n)$. Applicando $ L_{\alpha}$ si ottiene
-$$\{\alpha\beta_1, \alpha\beta_2, \ldots , \alpha\beta_k\} = \alpha^k(\beta_1, \beta_2, \ldots , \beta_k)$$
-Allora $ L_{\alpha}$ non è altro che una permutazione, per cui possiamo scrivere:
-$$ (\beta_1, \beta_2, \ldots , \beta_k) = \alpha^k(\beta_1, \beta_2, \ldots , \beta_k)$$
-Moltiplicando a destra e a sinistra per $\{\beta_k^{-1}, \beta_{k-1}^{-1}, \ldots , \beta_1^{-1}\}$ si ottiene:
-$$ \alpha^k = 1$$
+Siano ora $\{\beta_1, \beta_2, \ldots , \beta_k\}$ tutti gli elementi di $\znz$, con $k = \phi(n)$. Applichiamo $ L_{\alpha}$:
+$$\{\alpha\beta_1, \alpha\beta_2, \ldots , \alpha\beta_k\} = \{L_{\alpha}(\beta_1), L_{\alpha}(\beta_2), \ldots , L_{\alpha}(\beta_k)\}$$
+Essendo $ L_{\alpha}$ una bigezione, ovvero una permutazione su $\znz$, abbiamo che $ L_{\alpha}(\beta_1),$ $ L_{\alpha}(\beta_2),$ $ \ldots ,$ $ L_{\alpha}(\beta_k)$ appartengono ancora a $\znz$ e possiamo scrivere, grazie alla proprietà commutativa del prodotto:
+\[
+\beta_1 \beta_2 \cdots \beta_k \ = \ L_{\alpha}(\beta_1) L_{\alpha}(\beta_2) \cdots L_{\alpha}(\beta_k)\
+= \ \alpha\beta_1 \alpha\beta_2 \cdots \alpha\beta_k \ = \ \alpha^k(\beta_1 \beta_2 \cdots \beta_k)
+\]
+Moltiplicando a destra e a sinistra per $\beta_k^{-1} \beta_{k-1}^{-1} \cdots \beta_1^{-1}$ si ottiene:
+$$ \alpha^k = \alpha^{\phi(n)} = 1$$
 \end{proof}
 
 \noindent
@@ -538,8 +541,7 @@ dove $i$ rappresenta l'indice sul numero dei vertici e $j$ l'indice sul numero d
 $$ (1)\ \ \sum_{i=1}^n \sum_{j=1}^k m_{ij} \quad = \quad \sum_{j=1}^k\sum_{i=1}^n m_{ij}\ \ (2)$$
 dove $(1)$ rappresenta una somma di sommatorie con un vertice $i$ fissato; in ciascuna somma, si somma $1$ se un lato contiene il vertice fissato, $0$ se ciò non accade. Ma ciò non è altro che il grado del dato vertice; $(2)$ invece somma $k$ volte una sommatoria con un lato $j$ fissato, dove viene sommato $1$ tante volte quante un vertice appartiene a un dato lato, ovvero 2. Infine vale:
 \begin{align*}
- \sum_{v\in V} deg(v) \ =& \ 2k \\
- =&\ 2 | \mathlarger{\mathlarger{\epsilon}} |
+ \sum_{v\in V} deg(v) \ = \ 2k \ =\ 2 | \mathlarger{\mathlarger{\epsilon}} |
  \end{align*}
 \end{proof}
 
@@ -549,12 +551,15 @@ In un grafo $G = \grafo$ finito il numero di vertici di grado dispari è pari.
 
 \begin{proof}
 Sia $G = \grafo$. Vale, grazie alla relazione fondamentale tra lati e gradi di un grafo:
-\begin{align*}
-2 | \mathlarger{\mathlarger{\epsilon}} | \ &=\ \sum_{v\in V} deg (v) \\
-2 | \mathlarger{\mathlarger{\epsilon}} | \ &= \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} + \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}} \\
-2 | \mathlarger{\mathlarger{\epsilon}}| - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ &= \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}} 
-\end{align*}
-Allora la somma dei vertici con grado dispari deve essere pari perché differenza di un numero pari e una somma di numeri pari.
+\[
+2 | \mathlarger{\mathlarger{\epsilon}} | \ =\ \sum_{v\in V} deg (v) 
+= \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ + \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
+\]
+Allora la somma dei vertici con grado dispari deve essere pari perché differenza di un numero pari e una somma di numeri pari:
+\[
+2 | \mathlarger{\mathlarger{\epsilon}}| - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}} 
+\]
+e ciò accade solo se il numero di elementi dispari sommati è pari.
 \end{proof}
 
 \section{Teorema di caratterizzazione degli alberi finiti}
