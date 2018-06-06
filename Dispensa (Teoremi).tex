@@ -25,7 +25,10 @@
 \newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
 \newcommand{\znz}{\displaystyle({\Z}/{n\Z})^*}
 \newcommand{\znzbig}{\displaystyle\bigg(\frac{\Z}{n\Z}\bigg)^*}
-\newcommand{\Eps}{${\Large$\epsilon$}$}
+\newcommand{\Eps}{$E\:$}
+\newcommand{\MathEps}{E}
+%\newcommand{\Eps}{${\Large$\epsilon$}$}
+%\newcommand{\MathEps}{\mathlarger{\mathlarger{\epsilon}}}
 \newcommand{\grafo}{(V, \: \Eps)}
 \newcommand{\til}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
 \newcommand{\baseinduz}[1]{\newline\newline {\boldmath$n = #1$}}
@@ -522,9 +525,9 @@ Siano $u, v, w \in V$, $\til$ la relazione d'equivalenza. Vale:
 \end{proof}
 
 \section{Relazione fondamentale nei grafi finiti e lemma delle strette di mano}
-\begin{theorem}[Relazione fondamentale tra $|\Eps(G)|$ e $deg(Gi)$ in un grafo finito]
+\begin{theorem}[Relazione fondamentale tra $|\Eps(G)|$ e $deg(v)$ in un grafo finito]
 Sia $G = \grafo$ un grafo finito. Vale:
-$$ 2 \cdot | \mathlarger{\mathlarger{\epsilon}} | \ = \ \sum_{v\in V} deg_G (v) $$
+$$ 2 \cdot | \MathEps | \ = \ \sum_{v\in V} deg_G (v) $$
 \end{theorem}
 
 \begin{proof}
@@ -532,8 +535,8 @@ Siano $v_1, v_2,\ldots ,v_n$ i vertici di G, $e_1, e_2,\ldots, e_k$ i lati di G 
 \[
 M_{ij} \coloneqq \left\{
 \setlength\arraycolsep{2pt}
-\begin{array}{ccc} 0 &\qquad v_i \notin \ \Eps_j &\qquad \forall i \in \{1, 2, \ldots , n\} \\ \relax
-1 &\qquad v_i \in \ \Eps_j &\qquad \forall j \in \{1, 2, \ldots ,k \} 
+\begin{array}{ccc} 0 &\qquad v_i \notin e_j &\qquad \forall i \in \{1, 2, \ldots , n\} \\ \relax
+1 &\qquad v_i \in e_j &\qquad \forall j \in \{1, 2, \ldots ,k \} 
 \end{array}\right
 .
 \]
@@ -541,7 +544,7 @@ dove $i$ rappresenta l'indice sul numero dei vertici e $j$ l'indice sul numero d
 $$ (1)\ \ \sum_{i=1}^n \sum_{j=1}^k m_{ij} \quad = \quad \sum_{j=1}^k\sum_{i=1}^n m_{ij}\ \ (2)$$
 dove $(1)$ rappresenta una somma di sommatorie con un vertice $i$ fissato; in ciascuna somma, si somma $1$ se un lato contiene il vertice fissato, $0$ se ciò non accade. Ma ciò non è altro che il grado del dato vertice; $(2)$ invece somma $k$ volte una sommatoria con un lato $j$ fissato, dove viene sommato $1$ tante volte quante un vertice appartiene a un dato lato, ovvero 2. Infine vale:
 \begin{align*}
- \sum_{v\in V} deg(v) \ = \ 2k \ =\ 2 | \mathlarger{\mathlarger{\epsilon}} |
+ \sum_{v\in V} deg(v) \ = \ 2k \ =\ 2 |\MathEps |
  \end{align*}
 \end{proof}
 
@@ -552,12 +555,12 @@ In un grafo $G = \grafo$ finito il numero di vertici di grado dispari è pari.
 \begin{proof}
 Sia $G = \grafo$. Vale, grazie alla relazione fondamentale tra lati e gradi di un grafo:
 \[
-2 | \mathlarger{\mathlarger{\epsilon}} | \ =\ \sum_{v\in V} deg (v) 
+2 | \MathEps | \ =\ \sum_{v\in V} deg (v) 
 = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ + \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
 \]
 Allora la somma dei vertici con grado dispari deve essere pari perché differenza di un numero pari e una somma di numeri pari:
 \[
-2 | \mathlarger{\mathlarger{\epsilon}}| - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}} 
+2 | \MathEps | - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}} 
 \]
 e ciò accade solo se il numero di elementi dispari sommati è pari.
 \end{proof}
@@ -583,12 +586,12 @@ $(1 \implica 5).$ Procediamo per induzione su $|V(T)|$.
 \\Sia $T$ un qualsiasi albero con $|V(T)| \ge 2$. Dimostriamo che vale la proprietà $(5)$. Essendo $T$ un albero, $\exists$ almeno una foglia $v \in T$. Consideriamo ora $T - v$: è ancora un albero, dove
 \begin{align*}
 |V(T-v)| &= |V(T)| - 1 \\
-| \mathlarger{\mathlarger{\epsilon}} (T-v) | &= |\mathlarger{\mathlarger{\epsilon}} (T) | -1 
+| \MathEps (T-v) | &= |\MathEps (T) | -1 
 \end{align*}
 Vale, per ipotesi induttiva:
 \begin{align*}
-|V(T-v) | -1 &= |\mathlarger{\mathlarger{\epsilon}}(T-v)|,
-\\ \qquad\qquad |V(T)| -1 -1 &= |\mathlarger{\mathlarger{\epsilon}}(T) | -1
+|V(T-v) | -1 &= |\MathEps(T-v)|,
+\\ \qquad\qquad |V(T)| -1 -1 &= |\MathEps(T) | -1
 \end{align*}
 \end{proof}
 
@@ -600,8 +603,8 @@ Procediamo per induzione su $|V(T)|$.
 \induzalbero{2}\nopagebreak
 \\ Sia $T$ un grafo connesso che soddisfa la formula di Eulero. Supponiamo per assurdo che $T$ non abbia foglie, ovvero che $deg(v) \ge 2 \ \ \forall v \in V(T)$. Allora
 \begin{align*}
-|V(T)| - 1 &= \frac{1}{2} \sum_{v \in V} deg(V) \\ 
-2\ |V(T) | -2 &= \sum_{v \in V} deg(V) \ge \underbrace{2 \ |V(T)|}_{deg(V) \ge 2 \ \forall v}
+|V(T)| - 1 &= \frac{1}{2} \sum_{v \in V} deg(v) \\ 
+2\ |V(T) | -2 &= \sum_{v \in V} deg(v) \ge \underbrace{2 \ |V(T)|}_{deg(v) \ge 2 \ \forall v}
 \end{align*}
 che è un assurdo. Allora $T$ ha almeno una foglia. Se consideriamo $v \in V(T)$ foglia, $T-v$ è ancora connesso e vale Eulero. Allora per ipotesi induttiva $T - v$ è un albero $\implica$ $T$ è un albero.
 \end{proof}
@@ -617,7 +620,7 @@ $$ \mathcal{T} \coloneqq \{ T \ | \ \text{$T$ è un sottografo di G, $T$ è un a
 Sia $\overline{T} \in \mathcal{T} : |V(\overline{T}) | \ge |V(T)| \qquad \forall T \in \overline{T}$.
 \\Osservo che $\overline{T} \ne \emptyset$ in quanto se $v \in V(G)$ allora $(v, \emptyset) \in \mathcal{T}$. Proviamo che $V(\overline{T}) = V(G)$ ovvero che $\overline{T}$ è un albero di copertura.\\
 Usando la connessione di G, è possibile determinare un vertice $w \in V(G) \setminus V(\overline{T})$ e un vertice $u \in V(\overline{T})$ tali che $\{u, w\} \in\  \Eps(G)$. Ma allora possiamo definire
-$$ \overline{\overline{T}} \in \mathcal{T},\ \overline{\overline{T}} \coloneqq(V(\overline{T}) \cup \{w\}, \mathlarger{\mathlarger{\epsilon}}(\overline{T}) \cup \{u, w\})$$
+$$ \overline{\overline{T}} \in \mathcal{T},\ \overline{\overline{T}} \coloneqq(V(\overline{T}) \cup \{w\}, \MathEps (\overline{T}) \cup \{u, w\})$$
 che è chiaramente un albero, ma che va in contraddizione con la massimalità dei vertici di $\overline{T}$.
 \end{proof} 
 \end{document}
