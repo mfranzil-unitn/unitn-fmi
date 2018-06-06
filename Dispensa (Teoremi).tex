@@ -19,7 +19,6 @@
 \newcommand{\implica}{\Longrightarrow}
 \newcommand{\nin}{\forall n\in\N}
 \newcommand{\eps}{\varepsilon}
-\newcommand{\pr}{\prime}
 \newcommand{\pq}{\text{ per qualche }}
 \renewcommand\qedsymbol{$\blacksquare$}
 \newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
@@ -29,13 +28,13 @@
 \newcommand{\MathEps}{E}
 %\newcommand{\Eps}{${\Large$\epsilon$}$}
 %\newcommand{\MathEps}{\mathlarger{\mathlarger{\epsilon}}}
-\newcommand{\grafo}{(V, \: \Eps)}
+\newcommand{\grafo}{(V, \: \Eps)} 
 \newcommand{\til}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
-\newcommand{\baseinduz}[1]{\newline\newline {\boldmath$n = #1$}}
-\newcommand{\induzuno}[1]{\newline\newline {\boldmath$n \ge #1, n \implica n+1$}}
-\newcommand{\induzdue}[1]{\\\\{\boldmath$n \ge #1, \forall k < n \implica n$}}
-\newcommand{\baseinduzalbero}[1]{\\\\{\boldmath$ |V(T)| = #1$}}
-\newcommand{\induzalbero}[1]{\\\\{\boldmath$|V(T)| \ge #1, |V(T)| -1 \implica |V(T)|$}}
+\newcommand{\baseinduz}[1]{\\[1\baselineskip]{\boldmath$n = #1$}}
+\newcommand{\induzuno}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, n \implica n+1$}}
+\newcommand{\induzdue}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, \forall k < n \implica n$}}
+\newcommand{\baseinduzalbero}[1]{\\[1\baselineskip]{\boldmath$ |V(T)| = #1$}}
+\newcommand{\induzalbero}[1]{\\[1\baselineskip]{\boldmath$|V(T)| \ge #1, |V(T)| -1 \implica |V(T)|$}}
 
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
  
@@ -48,7 +47,7 @@
 \renewcommand{\thesection}{\Roman{section}} 
 \sectionfont{\large}
 
-\hbadness=0
+%\hbadness=0
  
 \begin{document}
  
@@ -140,17 +139,17 @@ dove $m-r$ è strettamente positivo per definizione.
 \end{proof}
 \renewcommand\qedsymbol{$\blacksquare$}
 \begin{proof}[Unicità.]
-Supponiamo $\exists n, m \in \Z$, $m \ne 0$; $q, q^{\pr}, r, r^{\pr} \in \N$:
+Supponiamo $\exists n, m \in \Z$, $m \ne 0$; $q, q', r, r' \in \N$:
 \begin{align*}
 n = qm + r,& \quad 0 \le r < |m| \\
-n = q^{\pr}m + r^{\pr},& \quad 0 \le r^{\pr} < |m|
+n = q'm + r',& \quad 0 \le r' < |m|
 \end{align*}
-Proviamo che $ q = q^{\pr}, r = r^{\pr}$. Possiamo supporre che $r^{\pr} > r$. Allora vale:
-\\$ qm - q^{\pr}m = r^{\pr} - r \sesolose m(q-q^{\pr}) = r^{\pr}-r$. Effettuando l'operazione di modulo otteniamo:
-$$ |m(q-q^{\pr})| = |r^{\pr} - r| = r^{\pr} - r < |m|$$
-Affinché la disuguaglianza sia rispettata deve essere $ 0 \le |q-q^{\pr}| < 1 $.
-\\ Essendo $q, q^{\pr} \in \N$, concludiamo che $q^{\pr} - q = 0 \implica q^{\pr} = q$.
-\\ Dall'equazione originale ricaviamo infine che: $mq + r = mq^{\pr} + r^{\pr} \implica r^{\pr} = r$.
+Proviamo che $ q = q', r = r'$. Possiamo supporre che $r' > r$. Allora vale:
+\\$ qm - q'm = r' - r \sesolose m(q-q') = r'-r$. Effettuando l'operazione di modulo otteniamo:
+$$ |m(q-q')| = |r' - r| = r' - r < |m|$$
+Affinché la disuguaglianza sia rispettata deve essere $ 0 \le |q-q'| < 1 $.
+\\ Essendo $q, q' \in \N$, concludiamo che $q' - q = 0 \implica q' = q$.
+\\ Dall'equazione originale ricaviamo infine che: $mq + r = mq' + r' \implica r' = r$.
 \end{proof}
 
 \section{Unicità della rappresentazione di un numero in base arbitraria}
@@ -161,7 +160,7 @@ Sia $b \in \N, b \ge 2 \implica \nin$, $\exists!$ rappresentazione di $n$ in bas
 \item $\eps_i \in I_b = \{0, 1,\ldots ,b-1\}$ $\forall i \in \N$ (ovvero $0 \le \eps_i < b$)
 \item $\displaystyle\sum_{i\in\N} \eps_{i}b^i = n$
 \end{enumerate}
-Inoltre, se esiste un altra successione $\{\eps_i'\}_{i\in\N}$ allora $\eps_i = \eps_{i}^{\pr}$ $\forall i \in \N$.
+Inoltre, se esiste un altra successione $\{\eps_i'\}_{i\in\N}$ allora $\eps_i = \eps_{i}'$ $\forall i \in \N$.
 \end{theorem}
 
 \renewcommand\qedsymbol{$\square$}
@@ -169,7 +168,8 @@ Inoltre, se esiste un altra successione $\{\eps_i'\}_{i\in\N}$ allora $\eps_i = 
 Procediamo per induzione di seconda forma su n.
 \baseinduz{0}
 \\Vale:
-$$ n = \sum_{i\in\N} \eps_i b_i = \sum_{i\in\N} 0 b_i = 0_b \ \forall i \in\N$$
+$$ n = \sum_{i\in\N} \eps_i b_i = \sum_{i\in\N} 0 b_i = 0_b$$
+$\forall i \in\N$.
 \induzdue{1}
 \\Supponiamo $n > 0$ e l'asserto vero $\forall k < n$.
 \\Eseguiamo la divisione euclidea di $n$ con $b$:
@@ -190,14 +190,15 @@ Procediamo per induzione di seconda forma.
 \baseinduz{0}
 \\Se $n = 0$ allora tutti gli addendi della sommatoria saranno nulli $\implica \eps_i = 0$ $\forall i \in \N$.
 \induzdue{1}
-\\ Sia $n > 0$. Assumiamo l'asserto sia vero $\forall k < n$ e dimostriamo che $P(n)$ è verificata $\nin$.
-Assumiamo esistano $\{\eps_i\}_{i\in\N}, \{\eps_i'\}_{i' \in\N}$ con le proprietà $(1)$, $(2)$, $(3)$.\\Proviamo che $\eps_i = \eps_{i}^{\pr}$ $\forall i \in \N$.
-\\Osserviamo che:
-$$n =\sum_{i\in\N} \eps_i b^i = \eps_0 + b\Bigg( \sum_{i \ge 1} \eps_i b^{i-1}\Bigg)$$
-$$n =\sum_{i\in\N} \eps_{i}^{\pr} b^i = \eps_{0}^{\pr} + b\Bigg( \sum_{i \ge 1} \eps_{i}^{\pr} b^{i-1}\Bigg)$$
-dove $\eps_{0}^{\pr},\eps_{0}$ sono i resti delle divisioni di n per b. Ma per l'unicità dellla divisione euclidea vale $\eps_{0}^{\pr} = \eps_{0}$. Stesso discorso per i quozienti, che inoltre risultano per definizione $\le n$. Segue, cambiando gli indici della sommatoria:
-\\$$q = \sum_{j\in\N} \eps_{j+1}^{\pr} b^j = \sum_{j\in\N} \eps_{j+1} b^j < n $$
-Come prima si ha $q < n$ e per ipotesi di induzione si ha che $\eps_i = \eps_{i}^{\pr}$ $\forall i \ge 1$
+\\Sia $n > 0$. Assumiamo l'asserto sia vero $\forall k < n$ e dimostriamo che $P(n)$ è verificata $\nin$.
+Assumiamo esistano $\{\eps_i\}_{i\in\N}, \{\eps_i'\}_{i' \in\N}$ con le proprietà $(1)$, $(2)$, $(3)$.\\Proviamo che $\eps_i = \eps_{i}'$ $\forall i \in \N$. Osserviamo che:
+\begin{align*}
+n =\sum_{i\in\N} \eps_i b^i = \eps_0 &+ b\Bigg( \sum_{i \ge 1} \eps_i b^{i-1}\Bigg) \\
+n =\sum_{i\in\N} \eps_{i}' b^i = \eps_{0}' &+ b\Bigg( \sum_{i \ge 1} \eps_{i}' b^{i-1}\Bigg)
+\end{align*}
+dove $\eps_{0}',\eps_{0}$ sono i resti delle divisioni di n per b. Ma per l'unicità dellla divisione euclidea vale $\eps_{0}' = \eps_{0}$. Stesso discorso per i quozienti, che inoltre risultano per definizione $\le n$. Segue, cambiando gli indici della sommatoria:
+$$q = \sum_{j\in\N} \eps_{j+1}' b^j = \sum_{j\in\N} \eps_{j+1} b^j < n $$
+Come prima si ha $q < n$ e per ipotesi di induzione si ha che $\eps_i = \eps_{i}'$ $\forall i \ge 1$
 \end{proof}
 
 \section{Esistenza e unicità del Massimo Comune Divisore e del minimo comune multiplo}
@@ -207,7 +208,7 @@ Siano $n, m \in \N$ con $n, m$ non entrambi nulli. Diremo che un $d \in \N, d \g
 \item$d | m \land d | n $
 \item$c | m \land c | n \implica c | d$ per qualche $c \in \N$.
 \end{enumerate}
-Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$.
+Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare di$n, m$ con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$.
 \end{theorem}
 
 \renewcommand\qedsymbol{$\square$}
@@ -234,7 +235,7 @@ Proviamo per assurdo che $r = 0$. Se fosse $r > 0$, avremmo che $r \in S$ (quind
 \begin{align*} 
 r = n - qd &= n - q(xn+ym) \\
 &= n - qnx - qmy \\
-&= n\underbrace{(1-qx)}_{x^{\pr}} + m\underbrace{(-qy)}_{y^{\pr}}
+&= n\underbrace{(1-qx)}_{x'} + m\underbrace{(-qy)}_{y'}
 \end{align*}
 Allora $r \in S$, ma ciò è assurdo perché $r < d = \min S$. Quindi $r = 0$ e $d|n$. Analogamente si dimostra $d | m$.
 \end{proof}
@@ -245,7 +246,7 @@ Siano $n, m \in \N$. Diremo che un $M \in \N$ è minimo comune multiplo di $n, m
 \item$n | M \land m | M $
 \item$n | c \land m | c \implica M | c$ per qualche $c \in \N$
 \end{enumerate}
-Se esiste, è unico lo indicheremo come $[m, n]$. Inoltre, se $n, m$ non sono entrambi nulli, vale:
+Se esiste, è unico e lo indicheremo come $[n, m]$. Inoltre, se $n, m$ non sono entrambi nulli, vale:
 $$[n, m] = \frac{nm}{(n, m)}$$
 Se $n, m = 0$, allora $ [n, m] = 0$.
 \end{theorem}
@@ -267,14 +268,14 @@ Invertendo le proprietà si ha che $M_1 | M_2 \land M_2 | M_1 \implica M_2 = \pm
 \begin{proof}[Esistenza.]
 Supponiamo $n, m$ non entrambi nulli. Osservo che
 \begin{align*}
-(n, m)|n \quad\sesolose&\quad n = n^{\pr}(n,m) \pq n^{\pr}\in\Z \\
-(n, m)|m \quad\sesolose&\quad m = m^{\pr}(n,m) \pq m^{\pr}\in\Z
+(n, m)|n \quad\sesolose&\quad n = n'(n,m) \pq n'\in\Z \\
+(n, m)|m \quad\sesolose&\quad m = m'(n,m) \pq m'\in\Z
 \end{align*}
 Definisco $\displaystyle M \coloneqq \frac{nm}{(n, m)}$. Sostituendo si ha che
 \begin{align*}
-\frac{nm}{(n, m)}\ = \ \frac{n^{\pr}m^{\pr}(n, m)(n, m)}{(n, m)} \quad=&\quad n^{\pr}m^{\pr}(n,m) \\
-\quad=&\quad (n^{\pr}(n, m))m^{\pr} = nm^{\pr} \\
-\quad=&\quad (m^{\pr}(n,m))n^{\pr} = mn^{\pr}
+\frac{nm}{(n, m)}\ = \ \frac{n'm'(n, m)(n, m)}{(n, m)} \quad=&\quad n'm'(n,m) \\
+\quad=&\quad (n'(n, m))m' = nm' \\
+\quad=&\quad (m'(n,m))n' = mn'
 \end{align*}
 Allora $n | M, m | M$. Sia ora $c \in \Z$. Verifichiamo la $(2)$, ovvero che $n | c \land m | c \stackrel{?}{\implica} M | c$.
 \\ Vale:
@@ -282,10 +283,10 @@ Allora $n | M, m | M$. Sia ora $c \in \Z$. Verifichiamo la $(2)$, ovvero che $n 
 (n, m) | n,\ n|c &\implica (n,m)|c \\
 (n, m) | m,\ m|c &\implica (n,m)|c 
 \end{align*}
-Allora $c = c^{\pr}(n, m) \pq c^{\pr} \in \Z$.
-\\Sappiamo infine che $(n^{\pr}, m^{\pr}) = 1$; per definizione abbiamo che $n^{\pr} | c^{\pr} \land m^{\pr} | c^{\pr} \implica n^{\pr}m^{\pr} | c^{\pr}$.
+Allora $c = c'(n, m) \pq c' \in \Z$.
+\\Sappiamo infine che $(n', m') = 1$; per definizione abbiamo che $n' | c' \land m' | c' \implica n'm' | c'$.
 \\Moltiplicando e sinistra a destra si ottiene
-$$ \underbrace{n^{\pr}m^{\pr}(n,m)}_M | \underbrace{c^{\pr}(n,m)}_c$$
+$$ \underbrace{n'm'(n,m)}_M | \underbrace{c'(n,m)}_c$$
 \end{proof}
 
 \section{Teorema fondamentale dell'aritmetica}
@@ -308,7 +309,7 @@ Procediamo per induzione di seconda forma.
 \\Altrimenti possiamo ipotizzare $n = d_1, d_2 :\enspace1 < d_1 < n,\enspace1 < d_2 < n$, dove
 \begin{align*}
 d_1 &= p_1 p_2 p_3 \cdots p_k \\
- d_2 &= p^{\pr}_1 p^{\pr}_2 p^{\pr}_3 \cdots p^{\pr}_k
+ d_2 &= p'_1 p'_2 p'_3 \cdots p'_k
 \end{align*}
  per ipotesi di induzione. Allora n è fattorizzabile perché prodotto di numeri primi positivi.
 \end{proof}
@@ -321,12 +322,12 @@ n &= p_1 p_2 p_3 \cdots p_k \\
 n &= q_1 q_2 q_3 \cdots q_h
 \end{align*}
 con $h \ge k$. Procediamo per induzione di prima forma.
-\\\\{\boldmath$k = 1$}
+\\[1\baselineskip]{\boldmath$k = 1$}
 \\Vale $p_1 = n = q_1 q_2 \cdots q_h$ con $h \ge 1$. Dimostriamo che $h = 1$. Ipotizziamo per assurdo che $ h \ge 2$; avremmo che $ n = q_1 q_2 \cdots q_h$. Sappiamo che essendo $p_1$ primo, deve necessariamente essere $ q_j = 1 \lor q_j = p_1$; tuttavia per ipotesi abbiamo che $q_j > 1 \implica q_j = p_1$.
 \\Allora si ha che
 $$ p_1 = n = q_1 q_2 \cdots q_h \ge q_1 q_2 = p^2_1 > p_1 = n $$
 che è un assurdo ($n \ngtr n$). Allora $h = 1$.
-\\\\{\boldmath$k \ge 2, k \implica k+1$}
+\\[1\baselineskip]{\boldmath$k \ge 2, k \implica k+1$}
 \\Con $ k > 1 $, assumiamo l'asserto vero per k ($n = p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_h$ con $h = k$, $p_i = q_i \quad\forall i \in \N$ a meno di permutazioni) e dimostriamolo per $k + 1 = h$. Supponiamo quindi che $p_1 p_2 \cdots p_k p_{k+1} = q_1 q_2 \cdots q_h$ con $h > k + 1$. Abbiamo che $p_{k+1} | n \implica p_{k+1} | q_1 q_2 \cdots q_h$, allora $p_{k+1} | q_h$ per ipotesi; essendo $p_{k+1}, q_h$ primi positivi, vale $p_{k+1} = q_h$. Ma allora 
 $$p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_{h-1} $$
 dove entrambi i membri sono stati divisi per $p_{k+1}$. Ma allora per ipotesi d'induzione le due fattorizzazioni hanno lo stesso numero d'elementi, ovvero 
@@ -368,8 +369,8 @@ $$ a - b = kxn + kym \quad\sesolose\quad \underbrace{a + (-kx)n}_c  =  \underbra
 
 \begin{proof}[Dimostrazione (insieme delle soluzioni)]\ \\
 Supponiamo infine $Sol(S) \ne \emptyset$, ovvero che il sistema di congruenze è verificato. Sia $c \in Sol(S)$. Dimostriamo che $Sol(S) = [c]_{[n,m]}$ verificando che uno contiene l'altro e viceversa.
-\\\\$(\subset)$.
-Sia $ c^{\pr} \in [c]_{[n,m]}$, allora $c^{\pr} = c + k[n,m] \pq k \in \Z$. Riscrivo il sistema come
+\\[1\baselineskip]$(\subset)$.
+Sia $ c' \in [c]_{[n,m]}$, allora $c' = c + k[n,m] \pq k \in \Z$. Riscrivo il sistema come
 \[
 S = \left\{
 \setlength\arraycolsep{2pt}
@@ -380,25 +381,25 @@ S = \left\{
 \]
 Vale:
 \begin{align*}
-[c^{\pr}]_n &= [c + k[n,m]]_n \\ 
+[c']_n &= [c + k[n,m]]_n \\ 
 &= [c]_n + [k]_n [[n,m]]_n \\
 &= [a]_n + \stkout{[k]_n [0]_n} \ \ \leftarrow\scriptstyle{ \text{$[n,m]$ multiplo di n}}
 \end{align*}
-Con un procedimento analogo si ottiene $[c^{\pr}]_m = [b]_m$.
+Con un procedimento analogo si ottiene $[c']_m = [b]_m$.
 \end{proof}
 \renewcommand\qedsymbol{$\blacksquare$}
 \begin{proof}[$(\supset)$]
 Sia $c \in Sol(S)$. Vale:
 \begin{align*}
 c &= a+hn = b + km \\
-c^{\pr} &= a+h^{\pr}n = b + k^{\pr}m
+c' &= a+h'n = b + k'm
 \end{align*}
-per qualche $h, h^{\pr}, k, k^{\pr} \in \Z$. Sottraiamo membro a membro:
+per qualche $h, h', k, k' \in \Z$. Sottraiamo membro a membro:
 \begin{align*}
-c^{\pr} - c = (h^{\pr} - h)n &= (k^{\pr} - k)m \\
-\implica n | (c^{\pr} -c),\ m|(c^{\pr} - c) &\implica [n, m]|(c^{\pr} - c) \\
-&\sesolose c^{\pr} \equiv c \ (mod \ [n, m]) \\
-&\sesolose c^{\pr} \in [c]_{[n,m]}
+c' - c = (h' - h)n &= (k' - k)m \\
+\implica n | (c' -c),\ m|(c' - c) &\implica [n, m]|(c' - c) \\
+&\sesolose c' \equiv c \ (mod \ [n, m]) \\
+&\sesolose c' \in [c]_{[n,m]}
 \end{align*}
 \end{proof}
 
@@ -469,7 +470,7 @@ ovvero $P_m(\alpha) \coloneqq \alpha^m \quad\forall \alpha \in \znz$. $P_m$ è b
 
 \begin{theorem}[Teorema fondamentale della crittografia RSA]
 Sia $c > 0: (c, \phi(n)) <= 1$ con n fissato; $d > 0: d \in [c]_{\phi(n)}^{-1}$. \\
-Allora la funzione $P_c$ (analoga a $P_m$ nella Definizione precedente) è invertibile e la sua inversa è $P_{c}^{-1} = P_d$.\\
+Allora la funzione $P_c$ (analoga a $P_m$ nella Definizione precedente) è invertibile e la sua inversa è $P_{c}^{-1} = P_d$.
 \end{theorem}
 
 
@@ -487,7 +488,7 @@ Per il Teorema di Fermat-Eulero ciò è equivalente a $\alpha \cdot 1^k = \alpha
 
 \section{Teoremi sulla congiungibilità nei grafi}
 \begin{theorem}[Teorema di equivalenza tra la congiungibilità con cammini e congiungibilità con passeggiate]
-Siano $G = \grafo$; $v, w \in V(G)$. Allora $v, w'$ sono congiungibili tramite cammini se e solo se sono congiungibili tramite passeggiate.
+Siano $G = \grafo$; $v, w \in V(G)$. Allora $v, w$ sono congiungibili tramite cammini se e solo se sono congiungibili tramite passeggiate.
 \end{theorem}
 
 \begin{proof}\ \\
@@ -519,7 +520,7 @@ Indicheremo la relazione d'equivalenza con $\til$.
 Siano $u, v, w \in V$, $\til$ la relazione d'equivalenza. Vale:
 \begin{enumerate}
 \item è vera in quanto $(u)$ è un cammino che congiunge $u$ a $u$.
-\item è vera in quanto se $u\ \til\ v$ esiste una passeggiata $P = (v_0,\ldots, v_n)$ tale che $u = v_0$ e $v = v_n$. Ma allora $P^{\pr} = (v_n, v_{n-1},\ldots ,v_0)$ è una passeggiata, dove vertici consecutivi in $P$ lo sono anche in $P^{\pr}$ (anche se in ordine inverso).
+\item è vera in quanto se $u\ \til\ v$ esiste una passeggiata $P = (v_0,\ldots, v_n)$ tale che $u = v_0$ e $v = v_n$. Ma allora $P' = (v_n, v_{n-1},\ldots ,v_0)$ è una passeggiata, dove vertici consecutivi in $P$ lo sono anche in $P'$ (anche se in ordine inverso).
 \item è vera in quanto se $u\ \til\ v$ e $v\ \til\ w$ allora esistono due passeggiate $P_1 = (v_0,\ldots ,v_n), P_2 = (w_0,\ldots, w_m)$ dove $u = v_0,\ v = v_n = w_0,\ w = w_m$. Possiamo definire una terza passeggiata $P_3 = (v_0,\ldots ,v_n,w_1,\ldots ,w_m)$ costruita come unione delle precedenti; $P_3$ è una passeggiata in quanto vertici consecutivi in $P_3$ lo sono o in $P_1$ o in $P_2$, e i primi e ultimi vertici della passeggiata sono rispettivamente $u$ e $w$.
 \end{enumerate}
 \end{proof}
@@ -570,7 +571,7 @@ e ciò accade solo se il numero di elementi dispari sommati è pari.
 Sia $T = \grafo$ un grafo finito. Le seguenti affermazioni sono equivalenti:
 \begin{enumerate}
 \item $T$ è un albero
-\item $\forall v, v^{\pr} \in V, \exists! \text{ cammino da } v \text{ in } v^{\pr}$
+\item $\forall v, v' \in V, \exists! \text{ cammino da } v \text{ in } v'$
 \item $T$ è connesso e $\forall e \in \Eps,\ T-e \coloneqq (V,\ \Eps \setminus \{e\})$ è sconnesso
 \item $T$ non ha cicli e $\forall e \in \binom{V}{2} \setminus \Eps, \ T + e \coloneqq (V, \ \Eps \ \cup \ \{e\})$ ha almeno un ciclo
 \item $T$ è connesso e $|V| - 1 = |\Eps|$.
