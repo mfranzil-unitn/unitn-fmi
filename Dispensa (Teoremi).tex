@@ -208,7 +208,7 @@ Siano $n, m \in \N$ con $n, m$ non entrambi nulli. Diremo che un $d \in \N, d \g
 \item$d | m \land d | n $
 \item$c | m \land c | n \implica c | d$ per qualche $c \in \N$.
 \end{enumerate}
-Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare di$n, m$ con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$.
+Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare di $n, m$ con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$.
 \end{theorem}
 
 \renewcommand\qedsymbol{$\square$}
@@ -369,7 +369,7 @@ $$ a - b = kxn + kym \quad\sesolose\quad \underbrace{a + (-kx)n}_c  =  \underbra
 
 \begin{proof}[Dimostrazione (insieme delle soluzioni)]\ \\
 Supponiamo infine $Sol(S) \ne \emptyset$, ovvero che il sistema di congruenze è verificato. Sia $c \in Sol(S)$. Dimostriamo che $Sol(S) = [c]_{[n,m]}$ verificando che uno contiene l'altro e viceversa.
-\\[1\baselineskip]$(\subset)$.
+\\[1\baselineskip]$(Sol(S) \supset [c]_{[n,m]})$.
 Sia $ c' \in [c]_{[n,m]}$, allora $c' = c + k[n,m] \pq k \in \Z$. Riscrivo il sistema come
 \[
 S = \left\{
@@ -388,8 +388,8 @@ Vale:
 Con un procedimento analogo si ottiene $[c']_m = [b]_m$.
 \end{proof}
 \renewcommand\qedsymbol{$\blacksquare$}
-\begin{proof}[$(\supset)$]
-Sia $c \in Sol(S)$. Vale:
+\begin{proof}[$(Sol(S) \subset {[c]}_{[n,m]})$]
+Sia $c' \in Sol(S)$. Vale:
 \begin{align*}
 c &= a+hn = b + km \\
 c' &= a+h'n = b + k'm
