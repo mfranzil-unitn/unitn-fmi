@@ -1,4 +1,4 @@
-\documentclass[12pt,twoscolu]{article}
+\documentclass[12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
@@ -10,6 +10,7 @@
 \usepackage{relsize}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage{sectsty}
+\usepackage{geometry}
 
 
 \newcommand{\N}{\mathbb{N}}
@@ -168,7 +169,7 @@ Inoltre, se esiste un altra successione $\{\eps_i'\}_{i\in\N}$ allora $\eps_i = 
 Procediamo per induzione di seconda forma su n.
 \baseinduz{0}
 \\Vale:
-$$ n = \sum_{i\in\N} \eps_i b_i = \sum_{i\in\N} 0 b_i = 0_b$$
+$$ n = \sum_{i\in\N} \eps_i b^i = \sum_{i\in\N} 0 b^i = 0$$
 $\forall i \in\N$.
 \induzdue{1}
 \\Supponiamo $n > 0$ e l'asserto vero $\forall k < n$.
@@ -194,9 +195,9 @@ Procediamo per induzione di seconda forma.
 Assumiamo esistano $\{\eps_i\}_{i\in\N}, \{\eps_i'\}_{i' \in\N}$ con le proprietà $(1)$, $(2)$, $(3)$.\\Proviamo che $\eps_i = \eps_{i}'$ $\forall i \in \N$. Osserviamo che:
 \begin{align*}
 n =\sum_{i\in\N} \eps_i b^i = \eps_0 &+ b\Bigg( \sum_{i \ge 1} \eps_i b^{i-1}\Bigg) \\
-n =\sum_{i\in\N} \eps_{i}' b^i = \eps_{0}' &+ b\Bigg( \sum_{i \ge 1} \eps_{i}' b^{i-1}\Bigg)
+n =\sum_{i\in\N} \eps_{i}' b^i = \eps_{0}' &+ b\underbrace{\Bigg( \sum_{i \ge 1} \eps_{i}' b^{i-1}\Bigg)}_{q = q'}
 \end{align*}
-dove $\eps_{0}',\eps_{0}$ sono i resti delle divisioni di n per b. Ma per l'unicità dellla divisione euclidea vale $\eps_{0}' = \eps_{0}$. Stesso discorso per i quozienti, che inoltre risultano per definizione $\le n$. Segue, cambiando gli indici della sommatoria:
+dove $\eps_{0}',\eps_{0}$ sono i resti delle divisioni di n per b. Ma per l'unicità dellla divisione euclidea vale $\eps_{0}' = \eps_{0}$. Stesso discorso per i quozienti, che inoltre risultano per definizione $< n$. Segue, cambiando gli indici della sommatoria:
 $$q = \sum_{j\in\N} \eps_{j+1}' b^j = \sum_{j\in\N} \eps_{j+1} b^j < n $$
 Come prima si ha $q < n$ e per ipotesi di induzione si ha che $\eps_i = \eps_{i}'$ $\forall i \ge 1$
 \end{proof}
@@ -208,7 +209,7 @@ Siano $n, m \in \N$ con $n, m$ non entrambi nulli. Diremo che un $d \in \N, d \g
 \item$d | m \land d | n $
 \item$c | m \land c | n \implica c | d$ per qualche $c \in \N$.
 \end{enumerate}
-Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare di $n, m$ con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$.
+Inoltre, $\exists x, y \in \Z : d = xn + ym$, ovvero $d$ è esprimibile come combinazione lineare di $n, m$ con $x, y$.  Se $\exists$ MCD tra $n, m$, è unico e lo indicheremo con $(n, m)$. 
 \end{theorem}
 
 \renewcommand\qedsymbol{$\square$}
@@ -369,7 +370,7 @@ $$ a - b = kxn + kym \quad\sesolose\quad \underbrace{a + (-kx)n}_c  =  \underbra
 
 \begin{proof}[Dimostrazione (insieme delle soluzioni)]\ \\
 Supponiamo infine $Sol(S) \ne \emptyset$, ovvero che il sistema di congruenze è verificato. Sia $c \in Sol(S)$. Dimostriamo che $Sol(S) = [c]_{[n,m]}$ verificando che uno contiene l'altro e viceversa.
-\\[1\baselineskip]$(Sol(S) \supset [c]_{[n,m]})$.
+\\[1\baselineskip]$(Sol(S) \supset [c]_{[n,m]})$. 
 Sia $ c' \in [c]_{[n,m]}$, allora $c' = c + k[n,m] \pq k \in \Z$. Riscrivo il sistema come
 \[
 S = \left\{
@@ -388,8 +389,8 @@ Vale:
 Con un procedimento analogo si ottiene $[c']_m = [b]_m$.
 \end{proof}
 \renewcommand\qedsymbol{$\blacksquare$}
-\begin{proof}[$(Sol(S) \subset {[c]}_{[n,m]})$]
-Sia $c' \in Sol(S)$. Vale:
+\begin{proof}[$(Sol(S) \subset {[c]}_{[n,m]})$] 
+Sia $c, c' \in Sol(S)$. Vale:
 \begin{align*}
 c &= a+hn = b + km \\
 c' &= a+h'n = b + k'm
