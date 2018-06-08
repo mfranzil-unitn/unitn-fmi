@@ -117,7 +117,7 @@ Procediamo per induzione di seconda forma su $n$.
 \item Consideriamo innanzitutto il caso $n \ge 0$. Se $n < m$, poniamo $q \coloneqq 0$ e $ r \coloneqq n$.
 \item Altrimenti, avremo che $n \ge m$. Sia $k \coloneqq n - m$.\\Applicando la divisione euclidea, otteniamo che:
 \begin{align*}
-\exists q, r \in \N : k &= mq + n, \ \ 0 \le k <n, \\
+\exists q, r \in \N : k &= mq + r, \ \ 0 \le r <m, \\
 \sesolose n = k + m =&\ (qm + r) + m = (q+1) m + r.
 \end{align*}
 \item Analizziamo ora il caso opposto, ovvero quando $n < 0$. Se $m > 0$, applicando la procedura di divisione euclidea a $-n > 0, m >0$, vale:
@@ -125,7 +125,7 @@ Procediamo per induzione di seconda forma su $n$.
 \exists q, r \in \N:\ -n =&  \ qm + r, \ \ 0 \le r < |m| \\
 \sesolose n =& - qm - r.
 \end{align*}
-Se $ r = 0$ abbiamo \sout{vinto} finito, altrimenti continiuamo per ottenere un resto $> 0$. Aggiungendo e togliendo $m$:
+Se $ r = 0$ abbiamo \sout{vinto} finito, altrimenti continiuamo per ottenere un resto $> 0$. Aggiungendo e sottraendo $m$:
 \begin{align*}
 n &= (-q)-r-m+m \\
 &= (-q-1)m+(m-r)
@@ -181,7 +181,7 @@ Per ipotesi sappiamo che $b \ge 2$, quindi vale $ 0 < q < qb \le qb + r = n$.
 n &= \Big(\sum \delta_i b^i\Big) b + r\\
 n &= \Big(\sum \delta_i b^{i+1}\Big) + r
 \end{align*}
-Sia ora $r = \eps_0$; effettuando un cambio di indice, otteniamo:
+Sia ora $r = \eps_0$; effettuando un cambio di indice e di notazione $(\delta_{j-1} = \eps_i)$, otteniamo:
 $$ n = \eps_0 + \sum_{j \ge 1} \delta_{j-1}b^j = \eps_0 + \delta_0 b^1 + \delta_1 b^2 + \ldots = \sum_{i\in\N} \eps_i b^i $$
 \end{proof}
 
@@ -228,9 +228,9 @@ $ d_1 = d_2$.
 Sia $S \coloneqq \{ s \in \Z | s > 0, s = xn + ym \text{ per qualche } x, y \in \Z\}$.
 \\Osserviamo che $S \ne \emptyset$, in quanto $nn + mm > 0, nn + mm \in S$.
 \\Sia $d \coloneqq \min S$. Vale:
+Essendo $d \in S, d = xn+ym \pq x, y \in Z$. Dimostriamo che $d = (n,m)$, ovvero:
 $$ d | m \land d | n ,\ \ \exists c \in \Z : (c | m \land c | n \implica c | d)$$
-Essendo $d \in S, d = xn+ym \pq x, y \in Z$.
-\\Dalla proprietà 2 si cha che $c | xn + ym$. Dimostriamo che $d | n$. Eseguendo la divisione euclidea tra $n, d$ otteniamo:
+Dalla proprietà 2 si cha che $c | xn + ym = d$. Dimostriamo che $d | n$. Eseguendo la divisione euclidea tra $n, d$ otteniamo:
 $$n = dq + r, \text{ } 0 \le r < |d|$$
 Proviamo per assurdo che $r = 0$. Se fosse $r > 0$, avremmo che $r \in S$ (quindi risulterebbe che $d \ne \min S$, in quanto $d > r$). Vale:
 \begin{align*} 
@@ -494,15 +494,15 @@ Siano $G = \grafo$; $v, w \in V(G)$. Allora $v, w$ sono congiungibili tramite ca
 
 \begin{proof}\ \\
 $(\implica)$. Banale. Il cammino è una passeggiata per definizione.\\
-$(\Longleftarrow)$. Supponiamo esista una passeggiata P che congiunge $v, w$. Sia $\mathcal{P}$ l'insieme di tutte le passeggiate che congiungono $v, w$. Osserviamo che $\mathcal{P} \ne \emptyset \ \ (P \in \mathcal{P})$.\\
-Sia $A \coloneqq \{ \underbrace{\mathcal{L}(\bar{P})}_{\text{lati di $\bar{P}$}} \in \N | \bar{P} \in \mathcal{P})$. Abbiamo che $A \ne \emptyset$, infatti $\mathcal{L}(P) \in A$.\\
+$(\Longleftarrow)$. Supponiamo esista una passeggiata $P_0$ che congiunge $v, w$. Sia $\mathcal{P}$ l'insieme di tutte le passeggiate che congiungono $v, w$. Osserviamo che $\mathcal{P} \ne \emptyset \ \ (P_0 \in \mathcal{P})$.\\
+Sia $A \coloneqq \{ \underbrace{\mathcal{L}(P)}_{\text{lati di $P$}} \in \N | P \in \mathcal{P})$. Abbiamo che $A \ne \emptyset$, infatti $\mathcal{L}(P_0) \in A$.\\
 Grazie al teorema del buon ordinamento $(\N, \le)$, vale:
-$$ \exists \min A = m \implica \exists P_0 \in \mathcal{P} : \mathcal{L}(P_0) = m \le \mathcal{L}(\bar{P}),\ \ \forall \bar{P} \in \mathcal{P}$$
+$$ \exists \min A = m \implica \exists P_0 \in \mathcal{P} : \mathcal{L}(P_0) = m \le \mathcal{L}(P),\ \ \forall P \in \mathcal{P}$$
 ovvero esiste $\min A$, quindi esiste una passeggiata $\mathcal{P}$ con il minimo numero di lati.\\
 Proviamo ora che $P_0$ è un cammino in $G$. Vale:
 $$ P_0 = (v_0, v_1\ldots, v_n)\qquad v = v_0,\ w = v_n$$
 Poniamo per assurdo che $P_0$ non sia un cammino, ovvero $\exists i, j \in \{0, 1,\ldots, n\} : \ i < j, v_i = v_j$.\\
-Definiamo $P_1 \coloneqq (v_0, v_1, \ldots , v_{i-1}, v_i, v_j, v_{j+1},\ldots, vn) \in \mathcal{P}$ (ovvero $P_0$ alla quale sono stati tolti tutti i vertici tra $i$ e $j$). Vale:
+Definiamo $P_1 \coloneqq (v_0, v_1, \ldots , v_{i-1}, v_i, v_{j+1},\ldots, vn) \in \mathcal{P}$ (ovvero $P_0$ alla quale sono stati tolti tutti i vertici tra $i$ e $j$). Vale:
 $$\mathcal{L}(P_1) = \mathcal{L}(P_0) - (j - i) = m - (j - i) < m$$
 Ma ciò è assurdo in quanto $P_0$ è già per definizione un cammino con il minimo numero di lati.
 \end{proof}
