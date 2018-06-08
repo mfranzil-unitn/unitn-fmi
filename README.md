@@ -24,4 +24,4 @@ Feel free to contribute by forking the project and issuing a pull request. Any c
 
 ## Authors
 * **Matteo Franzil** - *Initial work* - [mfranzil](https://github.com/mfranzil)
-* **Nicolò Gottardello**, **Simone Nascivera**, **Paolo Baiguera**, **Giacomo Fabris** ([gik98](https://github.com/gik98)), **Alessia Marcolini** - ([alessiamarcolini](https://github.com/alessiamarcolini)) - Main contributors and revisors of the project.
+* **Nicolò Gottardello**, **Simone Nascivera** ([SimoneNascivera](https://github.com/SimoneNascivera)), **Paolo Baiguera**, **Giacomo Fabris** ([gik98](https://github.com/gik98)), **Alessia Marcolini** ([alessiamarcolini](https://github.com/alessiamarcolini)) - Main contributors and revisors of the project.
