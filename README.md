@@ -16,7 +16,6 @@ This repo contains material about the following course:
 ## Content
 You can find the following material in the repo:
 * Esercizi/ - This folder contains exercises for the exam, divided into 5 different files: Principle of Induction, Chinese Remainder's theorem, RSA decryption, Isomorphism in graphs, Graph score analysis. All of them were taken from past exams.
-* Dispensa (Ostruzione dei grafi), Dispensa (Teoria dei grafi), Dispensa Luminati - official material provided by the professor.
 * Dispensa (Teoremi) - a TeX document (with its relative PDF) containing demonstrations required at the exam.
 
 ## Contribute
