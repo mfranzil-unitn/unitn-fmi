@@ -17,9 +17,10 @@ This repo contains material about the following course:
 You can find the following material in the repo:
 * Esercizi/ - This folder contains exercises for the exam, divided into 5 different files: Principle of Induction, Chinese Remainder's theorem, RSA decryption, Isomorphism in graphs, Graph score analysis. All of them were taken from past exams.
 * Dispensa (Teoremi) - a TeX document (with its relative PDF) containing demonstrations required at the exam.
+* CompendioEsercizi - a work in progress TeX document containing exercises found in the Esercizi/ folder.
 
 ## Contribute
-Feel free to contribute by forking the project and issuing a pull request. Any contribution to the theorem TeX document (Dispensa (Teoremi).tex) is more than welcome.
+Feel free to contribute by forking the project and issuing a pull request. Any contribution to the TeX documents are more than welcome.
 
 ## Authors
 * **Matteo Franzil** - *Initial work* - [mfranzil](https://github.com/mfranzil)
