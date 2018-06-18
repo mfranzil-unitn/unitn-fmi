@@ -1,0 +1,186 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{mathcomp}
+\usepackage[italian]{babel}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{tabularx}
+\usepackage{setspace}
+
+\newcounter{numeroes}[section]
+\newcounter{requestcounter}
+
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\container}[2]{
+\\\noindent\begin{tabularx}{\textwidth}{@{}XXX@{}}
+\begin{equation}
+#1
+\end{equation} &
+\begin{equation}
+#2
+\end{equation}
+\end{tabularx}
+}
+
+\newcommand{\containersingolo}[1]{
+\\\noindent\begin{tabularx}{\textwidth}{@{}XXX@{}}
+\begin{equation}
+#1
+\end{equation}
+\end{tabularx}
+}
+
+\newcommand{\cinesees}[4]{
+\left\{
+\setlength\arraycolsep{2pt}
+\begin{array}{rclc}x & \equiv &#1\quad (\text{mod}\ #2) \\ x & \equiv& #3\quad (\text{mod} \ #4)
+\end{array}\right
+.
+}
+
+\newcommand{\containerscore}[2]{\setcounter{requestcounter}{0}
+{\setstretch{0.4}\begin{align} #1 \end{align}\begin{align*} #2 \end{align*}}\setstretch{1.7}{\phantom{text}\ }
+}
+
+\newcommand{\containerscoretriple}[3]{\setcounter{requestcounter}{0}
+{\setstretch{0.4}\begin{align} #1 \end{align}\begin{align*} #2 \end{align*}\begin{align*} #3 \end{align*}}\setstretch{1.7}{\phantom{text}\ }
+}
+
+\newcommand{\induz}[1]{\stepcounter{numeroes}\textbf{Esercizio 1.\thenumeroes.} Si dimostri per induzione su $n \in \N$ che, $\forall n \ge #1$, vale:}
+\newcommand{\cinese}{\stepcounter{numeroes}\textbf{Esercizio 2.\thenumeroes.} Determinare tutte le soluzioni (se esistono) dei seguenti sistemi di congruenze, indicando la minima soluzione positiva.}
+\newcommand{\cineserichiesta}[1]{Si determini, inoltre, motivando la risposta, se esiste una soluzione #1}
+\newcommand{\rsa}[3]{x^{#1} \ \equiv \ #2 \ (\text{mod} \ #3)}
+\newcommand{\score}[2]{d_1 = #1,\qquad d_2 = #2}
+\newcommand{\scoresingolo}[1]{d = #1}
+\newcommand{\scoresingolonumero}[2]{d_#2 = #1}
+\newcommand{\request}[3]{\stepcounter{requestcounter} \text{(\alph{requestcounter}) #1}\ \stepcounter{requestcounter} \text{(\alph{requestcounter}) #2}\ \stepcounter{requestcounter} \text{(\alph{requestcounter}) #3}}
+\newcommand{\requestdue}[2]{\stepcounter{requestcounter} \text{(\alph{requestcounter}) #1}\ \stepcounter{requestcounter} \text{(\alph{requestcounter}) #2}}
+\newcommand{\requestuno}[1]{\stepcounter{requestcounter} \text{(\alph{requestcounter}) #1}}
+
+\makeatletter
+\def\l@section{\@dottedtocline{1}{0em}{3em}}
+\makeatother
+
+\begin{document}
+\title{Esercizi per Fondamenti matematici per l'informatica}
+\author{Matteo Franzil}
+\maketitle
+
+\tableofcontents
+\newpage
+\section{Esercizi sul Principio d'Induzione}
+
+\induz{0}
+\container{\sum_{i = 0}^{n} 3^i = \frac{3^{n+1} - 1}{2}}{\sum_{i = 0}^{n} i! \cdot i = (n+1)! - 1}
+\container{\sum_{i = 0}^{n} \frac{2}{(3i+1)(3i+4)} = \frac{2n+2}{3n+4}}{\sum_{i = 0}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}}
+\containersingolo{\sum_{i = 0}^{n} (2i+1)^2 = \frac{(n+1)(2n+1)(2n+3)}{3}}
+\induz{1}
+\container{\sum_{i = 1}^{n} \frac{i}{2^i} = 2 - \frac{n+2}{2^n}}{\sum_{i = 1}^{n} \frac{3}{(2i+1)(2i+3)} = \frac{n}{2n+3}}
+\container{\sum_{i = 1}^{n} \frac{4i}{3^i} = 3 - \frac{2n+3}{3^n}}{\sum_{i = 1}^{n} 3 \cdot 4^i = 4^{n+1} - 4}
+\container{\sum_{i = 1}^{n} 9i \cdot 4^i = 4 + 4^{n+1}(3n-1)}{\sum_{i = 1}^{n} 6i^2 = n(n+1)(2n+1)}
+\container{\sum_{i = 1}^{n} \frac{1}{i(i+1)} = \frac{n}{n+1}}{\sum_{i = 1}^{n} \frac{i}{2^i} = 2 - \frac{n+2}{2^n}}
+\container{\sum_{i = 1}^{n} \frac{2}{i! \cdot (i+2)} = 1 - \frac{2}{(n+2)!}}{\sum_{i = 1}^{n} 5^i = \frac{5^{n+1} - 5}{4}}
+\container{\sum_{i = 1}^{n} \frac{1}{(3i-2)(3i+1)} = \frac{n}{3n + 1}}{\sum_{i = 1}^{n} \frac{1}{(2i-1)(2i+1)} = \frac{n}{2n+1}}\containersingolo{\sum_{i = 1}^{n} \frac{4i^2 +2i -1}{(2i+1)!} = 1 - \frac{1}{(2n+1)!}}
+\containersingolo{\sum_{i = 1}^{n} \frac{1}{(3i-1)(3i+2)} = \frac{n}{6n+4}}
+\induz{2}
+\containersingolo{\sum_{i = 2}^{n} (i-1) \cdot i = \frac{n \cdot (n^2 -1)}{3}}
+\containersingolo{n^3 - n^2 - n + 1 \ge 0}
+\induz{5}
+\containersingolo{2^n > n^2 - \frac{1}{2}}
+\stepcounter{numeroes}\textbf{Esercizio 1.\thenumeroes.} Siano $F_i$ i numeri di Fibonacci. Si dimostri per induzione su $n \in \N$ che, $\forall n \ge 1$, vale:
+\containersingolo{\sum_{i = 1}^{n} F_i = F_{n+2} - 1}
+
+\section{Esercizi sul Teorema cinese del resto}
+\cinese
+\container{\cinesees{2}{113}{87}{84}}{\cinesees{28}{45}{46}{18}}
+\container{\cinesees{37}{168}{51}{770}}{\cinesees{30}{1015}{75}{195}}
+\container{\cinesees{71}{148}{67}{180}}{\cinesees{37}{280}{47}{165}}
+\container{\cinesees{42}{426}{72}{78}}{\cinesees{112}{72}{4}{330}}
+\container{\cinesees{20}{156}{8}{108}}{\cinesees{165}{164}{79}{75}}
+\container{\cinesees{4}{168}{25}{119}}{\cinesees{27}{218}{31}{102}}
+\container{\cinesees{-44}{48}{72}{28}}{\cinesees{45}{95}{80}{135}}
+\container{\cinesees{48}{108}{-12}{42}}{\cinesees{8}{90}{-1}{33}}
+\cinese\ \cineserichiesta{}
+\containersingolo{\cinesees{112}{72}{4}{330}\qquad\qquad\text{divisibile per 51.}}
+\containersingolo{\cinesees{28}{45}{46}{18}\qquad\qquad\text{divisibile per 16.}}
+\containersingolo{\cinesees{20}{117}{11}{81}\qquad\qquad\text{divisibile per 15.}}
+\containersingolo{\cinesees{-7}{21}{41}{81}\qquad\qquad\text{divisibile per 14.}}
+\containersingolo{\cinesees{9}{603}{27}{144}\qquad\qquad\text{divisibile per 5.}}
+\containersingolo{\cinesees{-63}{267}{75}{186}\qquad\qquad\text{divisibile per 5.}}
+\containersingolo{\cinesees{52}{126}{-11}{91}\qquad\qquad\text{divisibile per 101.}}
+\containersingolo{\cinesees{-4}{402}{-37}{279}\qquad\qquad\text{divisibile per 9.}}
+\containersingolo{\cinesees{9}{162}{-9}{114}\qquad\qquad\text{divisibile per 17.}}
+\containersingolo{\cinesees{-2}{96}{20}{170}\qquad\qquad\text{divisibile per 4.}}
+\containersingolo{\cinesees{-39}{42}{-7}{26}\qquad\qquad\text{divisibile per 5.}}
+\containersingolo{\cinesees{36}{99}{-36}{171}\qquad\qquad\text{divisibile per 50.}}
+\cinese\ \cineserichiesta{}
+\containersingolo{\cinesees{122}{210}{66}{77}\qquad\qquad\text{la cui cifra delle decine è pari a 7}}
+\containersingolo{\cinesees{1}{111}{55}{63}\qquad\qquad\text{la cui cifra delle decine è pari a 8}}
+\containersingolo{\cinesees{20}{84}{-32}{136}\qquad\qquad\text{la cui cifra delle unità è pari a 5}}
+\containersingolo{\cinesees{89}{125}{-3}{78}\qquad\qquad\text{la cui somma delle cifre è pari a 11}}
+\cinese\ Si determini, inoltre, motivando la risposta, se tutte le soluzioni di tale sistema sono divisibili per 17.
+\containersingolo{\cinesees{85}{102}{133}{264}}
+
+\section{Esercizi sulla crittografia RSA}
+\stepcounter{numeroes}\textbf{Esercizio 3.\thenumeroes.} Determinare le soluzioni delle seguenti congruenze. Individuare tra tali soluzioni il minimo numero intero positivo.
+\container{\rsa{7}{9}{82}}{\rsa{35}{5}{144}}
+\container{\rsa{31}{47}{122}}{\rsa{17}{19}{120}}
+\container{\rsa{17}{2}{51}}{\rsa{5}{49}{171}}
+\container{\rsa{53}{17}{117}}{\rsa{11}{25}{62}}
+\container{\rsa{23}{3}{31}}{\rsa{33}{2}{55}}
+\container{\rsa{11}{35}{38}}{\rsa{7}{8}{77}}
+\container{\rsa{9}{12}{355}}{\rsa{23}{9}{31}}
+\containersingolo{\rsa{13}{8}{143}}
+
+\section{Esercizi sugli isomorfismi}
+
+\section{Esercizi sugli score di un grafo}\begin{spacing}{1.0}
+\stepcounter{numeroes}\textbf{Esercizio 5.\thenumeroes.} Si dica, motivando la risposta, se il dato vettore è lo score di un grafo e, in caso lo sia, si costruisca un tale grafo il teorema dello score. Si dica inoltre, se esiste, un tale grafo che soddisfi i requisiti richiesti.\\
+\end{spacing}
+\containerscore{\scoresingolo{(1, 1, 1, 1, 2, 3, 3, 3, 5)}}{\request{sia sconnesso}{sia 2-connesso}{sia connesso}}
+\containerscore{\scoresingolo{(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 6)}}{\request{sia sconnesso}{abbia esattamente tre componenti connesse}{sia un albero}}
+\containerscore{\scoresingolo{(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4, 5)}}{\request{sia connesso}{sia un albero}{con dei cicli}}
+\containerscore{\scoresingolo{(0, 1, 1, 1, 1, 1, 3, 3, 4, 5)}}{\request{sia aciclico}{sia sconnesso}{abbia esattamente due componenti connesse}}
+\containerscore{\scoresingolo{(1, 1, 1, 2, 4, 4, 4, 5, 5, 7)}}{\request{sia connesso}{sia un albero}{sia aciclico}}\begin{spacing}{1.0}
+\stepcounter{numeroes}\textbf{Esercizio 5.\thenumeroes.} Si dica, motivando la risposta, quale dei seguenti vettori è lo score di un grafo e, in caso lo sia, si costruisca un tale grafo il teorema dello score. Si dica inoltre, se esiste, un tale grafo che soddisfi i requisiti richiesti.\\
+\end{spacing}
+\containerscore{\score{(1, 1, 3, 3, 3, 5, 7, 7)}{(1, 1, 1, 1, 1, 1, 2, 4, 4)}}{\request{sia un albero}{sia 2 connesso}{sia aciclico}}
+\containerscore{\score{(2, 2, 2, 2, 2, 2, 2, 3, 4, 4, 10, 11)}{(1, 1, 1, 1, 1, 1, 2, 8, 8)}}{\request{sia un albero}{sia sconnesso}{sia connesso}}
+\containerscore{\score{(1, 1, 2, 3, 3, 3, 3, 4, 4, 4, 10, 10)}{(0, 1, 1, 2, 2, 2, 2, 6, 8)}}{\request{sia un albero}{sia sconnesso}{sia connesso}}
+\containerscore{\score{(0, 1, 2, 3, 3, 3, 5, 8, 8, 9)}{(1, 3, 3, 3, 4, 4, 4, 5, 5)}}{\request{sia un albero}{sia sconnesso}{sia connesso}}
+\containerscore{\score{(2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 11, 11)}{(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 4, 6)}}{\request{sia un albero}{sia sconnesso}{sia 2-connesso}}
+\containerscore{\score{(l, 2, 2, 2, 2, 3, 5, 7, 9, 9)}{(2, 2, 2, 3, 3, 4, 4, 5, 9, 9, 9)}}{\request{sia un albero}{sia sconnesso}{sia 2-connesso}}
+\containerscore{\score{(3, 3, 3, 4, 4, 5, 6)}{(1, 1, 1, 1, 4, 4)}}{\request{sia sconnesso}{sia 2-connesso}{sia aciclico}}
+\containerscore{\score{(2, 2, 2, 3, 3, 3, 4, 4, 6, 7)}{(0, 0, 1, 1, 3, 3, 3, 4, 4, 6, 9)}}{\request{sia sconnesso}{sia Hamiltoniano}{sia un albero}}
+\containerscore{\score{(1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6)}{(1, 1, 1, 1, 3, 3, 3, 4, 8, 9)}}{\request{sia connesso}{abbia tre componenti connesse}{sia un albero}}
+\containerscore{\score{(2, 2, 2, 2, 2, 3, 5, 8, 8)}{(1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5)}}{\request{sia connesso}{sia 2–connesso}{sia un albero}}
+\containerscore{\score{(3, 4, 5, 8, 8, 9, 9, 10, 11, 11, 11, 11)}{(1, 1, 1, 1, 5, 5, 5, 5, 5, 5)}}{\request{sia connesso}{sia un albero}{abbia tre componenti connesse}}
+\containerscore{\score{(1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 3, 4, 5)}{(1, 1, 1, 2, 2, 3, 4, 4, 4, 5, 6, 6, 6)}}{\request{sia Hamiltoniano}{sia sconnesso}{sia un albero}}
+\containerscore{\score{(0, 0, 0, 3, 3, 4, 5, 7, 8, 8, 10, 10, 10, 10)}{(1, 1, 1, 1, 1, 2, 2, 3, 4, 4, 5, 5, 5, 7)}}{\request{abbia due componenti connesse}{sia 2–connesso}{sia un albero}}
+\containerscore{\score{(3, 3, 3, 3, 5, 6, 9, 10, 10, 10, 10)}{(1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4)}}{\request{sia sconnesso}{sia 2–connesso}{sia un albero}}
+\containerscore{\score{(2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 8)}{(1, 2, 2, 2, 2, 2, 2, 3, 3, 5, 5, 7, 8, 14, 14)}}{\request{sia un albero}{sia Hamiltoniano}{sia sconnesso}}
+\containerscore{\score{(1, 2, 2, 2, 2, 3, 5, 6, 8)}{(1, 1, 1, 2, 2, 2, 3, 3, 4, 5)}}{\request{sia connesso}{sia sconnesso}{sia un albero}}
+\containerscore{\score{(2, 3, 4, 4, 5, 5, 5, 6, 7, 7)}{(1, 2, 3, 3, 3, 3, 4, 8, 8, 9)}}{\request{sia Hamiltoniano}{sia sconnesso}{sia un albero}}
+\containerscore{\score{(1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 4)}{(1, 1, 1, 2, 2, 2, 3, 3, 5, 6, 6, 7, 8, 8)}}{\request{sia Hamiltoniano}{sia aciclico}{sia connesso}}
+\containerscore{\score{(1, 2, 2, 2, 3, 4, 4, 4, 9, 9)}{(1, 1, 1, 2, 2, 2, 2, 4, 5, 6)}}{\request{sia un albero}{sia sconnesso}{sia connesso}}
+\containerscore{\score{(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)}{(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 5, 5)}}{\request{abbia tre componenti connesse}{sia 2–connesso}{sia un albero}}
+\containerscore{\score{(1, 1, 1, 1, 1, 1, 1, 4, 6, 8, 8, 8, 9, 10, 12, 13, 13)}{(1, 1, 2, 2, 4, 4, 4, 4, 4, 4)}}{\request{sia Hamiltoniano}{sia un albero}{sia sconnesso}}
+\containerscore{\score{(1, 1, 1, 2, 3, 3, 3, 4, 4, 5, 6, 6, 6, 7, 7)}{(2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 7)}}{\request{sia Hamiltoniano}{abbia due componenti connesse}{sia un albero}}
+\containerscore{\score{(3, 3, 3, 3, 5, 5, 5, 5)}{(1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5)}}{\request{sia Hamiltoniano}{sia sconnesso}{sia un albero}}
+\containerscore{\score{(1, 2, 2, 2, 3, 3, 4, 5, 9, 9)}{(1, 1, 1, 1, 1, 1, 1, 1, 3, 4, 5)}}{\request{sia 2–connesso}{sia sconnesso}{sia un albero}}
+\containerscore{\score{(2, 2, 2, 3, 3, 3, 3, 4, 8, 8)}{(1, 1, 1, 1, 2, 2, 6, 6)}}{\request{sia un albero}{sia sconnesso}{sia Hamiltoniano}}
+\containerscore{\score{(1, 1, 1, 2, 4, 4, 4, 5, 5, 7)}{(0, 1, 1, 2, 2, 2, 2, 6, 8)}}{\request{sia connesso}{sia sconnesso}{sia Hamiltoniano}}
+\containerscore{\score{(1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 4)}{(2, 2, 3, 3, 4, 5, 6, 6, 6, 7, 7)}}{\request{sia un albero}{sia sconnesso}{sia Hamiltoniano}}
+\containerscore{\score{(2, 2, 2, 2, 4, 4, 5, 5, 8)}{(1, 2, 3, 3, 3, 4, 5, 5, 5, 10, 10, 10)}}{\request{sia un albero}{sia sconnesso}{sia Hamiltoniano}}
+\containerscore{\score{(2, 2, 2, 2, 2, 2, 2, 3, 4, 4, 10, 11)}{(1, 1, 1, 1, 1, 1, 2, 8, 8)}}{\request{sia un albero}{sia sconnesso}{sia 2-connesso}}
+\containerscoretriple{\score{(1, 1, 1, 1, 1, 2, 2, 3, 8, 8, 8)}{(1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 4, 4, 5)}}{\requestuno{abbia un 4–ciclo come una delle sue componenti connesse}}{\requestdue{sia 2–connesso}{sia un albero}}
+\containerscoretriple{\score{(3, 3, 4, 4, 4, 6, 9, 9, 9, 9)}{(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 4, 4)}}{\requestdue{sia 2–connesso}{sia un albero}}{\requestuno{abbia un 3–ciclo come una delle sue componenti connesse}}
+\containerscoretriple{\score{(2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 5)}{(0, 0, 0, 1, 1, 1, 3, 3, 4, 5, 6, 6, 10)}}{\requestdue{sia Hamiltoniano}{sia un albero}}{\requestuno{abbia un 4–ciclo come una delle sue componenti connesse}}
+\containerscoretriple{\scoresingolonumero{(1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 11)}{1}}{\scoresingolonumero{(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 4, 6)}{2}}{\request{una foresta}{sia connesso}{contenga un 3–ciclo}}
+\containerscoretriple{\scoresingolonumero{(1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 6)}{1}}{\scoresingolonumero{(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 4, 4, 6)}{2}}{\request{sia Hamiltoniano}{abbia esattamente tre componenti connesse}{sia un albero}}
+\containerscoretriple{\scoresingolonumero{(1, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4)}{1}}{\scoresingolonumero{(1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 4, 4, 4)}{2}}{\request{sia Hamiltoniano}{sia un albero}{abbia quattro componenti connesse}}
+
+\end{document}
