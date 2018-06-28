@@ -27,8 +27,8 @@ Feel free to contribute by forking the project and issuing a pull request. Any c
 
 Main revisors and contributors of the project:
 
+* **Paolo Baiguera**
 * **Nicolò Gottardello** ([GottaSr](https://github.com/GottaSr))
 * **Simone Nascivera** ([SimoneNascivera](https://github.com/SimoneNascivera))
-* **Paolo Baiguera**
 * **Giacomo Fabris** ([gik98](https://github.com/gik98))
-* **Alessia Marcolini** ([alessiamarcolini](https://github.com/alessiamarcolini)) - Main contributors and revisors of the project.
+* **Alessia Marcolini** ([alessiamarcolini](https://github.com/alessiamarcolini))
