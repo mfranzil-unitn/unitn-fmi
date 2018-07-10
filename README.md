@@ -9,7 +9,7 @@ This repo contains material about the following course:
 
 **Teacher**: prof. Riccardo Ghiloni
 
-**Course**: Informatica (BCs)
+**Course**: Informatica (Bachelor)
 
 **University**: Trento
 
