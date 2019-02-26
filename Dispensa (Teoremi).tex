@@ -1,55 +1,55 @@
 \documentclass[12pt]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage{mathtools}
-\usepackage{ulem}
-\usepackage{mathcomp}
-\usepackage[italian]{babel}
-\usepackage[margin=1in]{geometry} 
-\usepackage{scrextend}
-\usepackage{relsize}
-\usepackage{amsmath,amsthm,amssymb,amsfonts}
-\usepackage{sectsty}
-\usepackage{geometry}
-
-
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\sesolose}{\Leftrightarrow}
-\newcommand{\implica}{\Longrightarrow}
-\newcommand{\nin}{\forall n\in\N}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\pq}{\text{ per qualche }}
-\renewcommand\qedsymbol{$\blacksquare$}
-\newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
-\newcommand{\znz}{\displaystyle({\Z}/{n\Z})^*}
-\newcommand{\znzbig}{\displaystyle\bigg(\frac{\Z}{n\Z}\bigg)^*}
-\newcommand{\Eps}{$E\:$}
-\newcommand{\MathEps}{E}
-%\newcommand{\Eps}{${\Large$\epsilon$}$}
-%\newcommand{\MathEps}{\mathlarger{\mathlarger{\epsilon}}}
-\newcommand{\grafo}{(V, \: \Eps)} 
-\newcommand{\til}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
-\newcommand{\baseinduz}[1]{\\[1\baselineskip]{\boldmath$n = #1$}}
-\newcommand{\induzuno}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, n \implica n+1$}}
-\newcommand{\induzdue}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, \forall k < n \implica n$}}
-\newcommand{\baseinduzalbero}[1]{\\[1\baselineskip]{\boldmath$ |V(T)| = #1$}}
-\newcommand{\induzalbero}[1]{\\[1\baselineskip]{\boldmath$|V(T)| \ge #1, |V(T)| -1 \implica |V(T)|$}}
-
-\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
- 
-\newtheorem{theorem}{Teorema}
-
-\makeatletter
-\def\l@section{\@dottedtocline{1}{0em}{3em}}
-\makeatother
-
-\renewcommand{\thesection}{\Roman{section}} 
-\sectionfont{\large}
-
-%\hbadness=0
- 
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage{mathtools}
+	\usepackage{ulem}
+	\usepackage{mathcomp}
+	\usepackage[italian]{babel}
+	\usepackage[margin=1in]{geometry} 
+	\usepackage{scrextend}
+	\usepackage{relsize}
+	\usepackage{amsmath,amsthm,amssymb,amsfonts}
+	\usepackage{sectsty}
+	\usepackage{geometry}
+	
+	
+	\newcommand{\N}{\mathbb{N}}
+	\newcommand{\Z}{\mathbb{Z}}
+	\newcommand{\R}{\mathbb{R}}
+	\newcommand{\sesolose}{\Leftrightarrow}
+	\newcommand{\implica}{\Longrightarrow}
+	\newcommand{\nin}{\forall n\in\N}
+	\newcommand{\eps}{\varepsilon}
+	\newcommand{\pq}{\text{ per qualche }}
+	\renewcommand\qedsymbol{$\blacksquare$}
+	\newcommand{\stkout}[1]{\ifmmode\text{\sout{\ensuremath{#1}}}\else\sout{#1}\fi}
+	\newcommand{\znz}{\displaystyle({\Z}/{n\Z})^*}
+	\newcommand{\znzbig}{\displaystyle\bigg(\frac{\Z}{n\Z}\bigg)^*}
+	\newcommand{\Eps}{$E\:$}
+	\newcommand{\MathEps}{E}
+	%\newcommand{\Eps}{${\Large$\epsilon$}$}
+	%\newcommand{\MathEps}{\mathlarger{\mathlarger{\epsilon}}}
+	\newcommand{\grafo}{(V, \: \Eps)} 
+	\newcommand{\til}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
+	\newcommand{\baseinduz}[1]{\\[1\baselineskip]{\boldmath$n = #1$}}
+	\newcommand{\induzuno}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, n \implica n+1$}}
+	\newcommand{\induzdue}[1]{\\[1\baselineskip]{\boldmath$n \ge #1, \forall k < n \implica n$}}
+	\newcommand{\baseinduzalbero}[1]{\\[1\baselineskip]{\boldmath$ |V(T)| = #1$}}
+	\newcommand{\induzalbero}[1]{\\[1\baselineskip]{\boldmath$|V(T)| \ge #1, |V(T)| -1 \implica |V(T)|$}}
+	
+	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+	
+	\newtheorem{theorem}{Teorema}
+	
+	\makeatletter
+	\def\l@section{\@dottedtocline{1}{0em}{3em}}
+	\makeatother
+	
+	\renewcommand{\thesection}{\Roman{section}} 
+	\sectionfont{\large}
+	
+	%\hbadness=0
+	
 \begin{document}
 
 \title{Teoremi richiesti all'Esame di\\Fondamenti matematici per l'informatica}
@@ -71,11 +71,11 @@
 	Procediamo per induzione di prima forma. Sia $\{0, 1, \ldots ,n\} \subset B \ \forall n\in\N$, ovvero $P(n) = (\{0, 1, \ldots ,n\} \subset B)$ è vera $\nin$.
 	\baseinduz{0}
 	\\$\{0\}\subset B \sesolose 0 \in B \sesolose 0 \not\in A$.
-		\\Se supponessimo per assurdo che $0 \in A$, allora avremmo che $0 = \min A$. Quindi $0 \not\in A$.
-		\induzuno{1}
-		\\Assumiamo che $\{0, 1, \ldots, n\} \subset B$ per qualche $n$.
-		\\Proviamo che $\{0, 1, \ldots, n, n+1\} \subset B$.
-		\\$n+1\subset A$? No, perché altrimenti avremmo che $n+1 = \min A$.
+	\\Se supponessimo per assurdo che $0 \in A$, allora avremmo che $0 = \min A$. Quindi $0 \not\in A$.
+	\induzuno{1}
+	\\Assumiamo che $\{0, 1, \ldots, n\} \subset B$ per qualche $n$.
+	\\Proviamo che $\{0, 1, \ldots, n, n+1\} \subset B$.
+	\\$n+1\subset A$? No, perché altrimenti avremmo che $n+1 = \min A$.
 	\\Allora
 	$$n+1 \in B \implica B = \N, \ A = \emptyset$$
 \end{proof}
@@ -116,26 +116,26 @@
 	\begin{itemize}
 		\item Consideriamo innanzitutto il caso $n \ge 0$. Se $n < m$, poniamo $q \coloneqq 0$ e $ r \coloneqq n$.
 		\item Altrimenti, avremo che $n \ge m$. Sia $k \coloneqq n - m$.\\Applicando la divisione euclidea, otteniamo che:
-		      \begin{align*}
-			      \exists q, r \in \N : k & = mq + r, \ \ 0 \le r <m,     \\
-			      \sesolose n = k + m =   & \ (qm + r) + m = (q+1) m + r.
-		      \end{align*}
+		\begin{align*}
+			\exists q, r \in \N : k & = mq + r, \ \ 0 \le r <m,     \\
+			\sesolose n = k + m =   & \ (qm + r) + m = (q+1) m + r.
+		\end{align*}
 		\item Analizziamo ora il caso opposto, ovvero quando $n < 0$. Se $m > 0$, applicando la procedura di divisione euclidea a $-n > 0, m >0$, vale:
-		      \begin{align*}
-			      \exists q, r \in \N:\ -n = & \ qm + r, \ \ 0 \le r < |m| \\
-			      \sesolose n =              & - qm - r.
-		      \end{align*}
-		      Se $ r = 0$ abbiamo \sout{vinto} finito, altrimenti continiuamo per ottenere un resto $> 0$. Aggiungendo e sottraendo $m$:
-		      \begin{align*}
-			      n & = (-q)-r-m+m    \\
-			        & = (-q-1)m+(m-r)
-		      \end{align*}
-		      dove $m-r$ è strettamente positivo per definizione.
+		\begin{align*}
+			\exists q, r \in \N:\ -n = & \ qm + r, \ \ 0 \le r < |m| \\
+			\sesolose n =              & - qm - r.
+		\end{align*}
+		Se $ r = 0$ abbiamo \sout{vinto} finito, altrimenti continiuamo per ottenere un resto $> 0$. Aggiungendo e sottraendo $m$:
+		\begin{align*}
+			n & = (-q)-r-m+m    \\
+			& = (-q-1)m+(m-r)
+		\end{align*}
+		dove $m-r$ è strettamente positivo per definizione.
 		\item Sia infine $m < 0$, ovvero $-m > 0$.
-		      \begin{align*}
-			      \implica \exists q, r \in \Z:\ n & = (-m)q + r, \ \ 0 \le r < |m| \\
-			      \sesolose n                      & = (-q)m + r
-		      \end{align*}
+		\begin{align*}
+			\implica \exists q, r \in \Z:\ n & = (-m)q + r, \ \ 0 \le r < |m| \\
+			\sesolose n                      & = (-q)m + r
+		\end{align*}
 	\end{itemize}
 \end{proof}
 \renewcommand\qedsymbol{$\blacksquare$}
@@ -147,10 +147,10 @@
 	\end{align*}
 	Proviamo che $ q = q', r = r'$. Possiamo supporre che $r' > r$. Allora vale:
 	\\$ qm - q'm = r' - r \sesolose m(q-q') = r'-r$. Effettuando l'operazione di modulo otteniamo:
-		$$ |m(q-q')| = |r' - r| = r' - r < |m|$$
-		Affinché la disuguaglianza sia rispettata deve essere $ 0 \le |q-q'| < 1 $.
-		\\ Essendo $q, q' \in \N$, concludiamo che $q' - q = 0 \implica q' = q$.
-		\\ Dall'equazione originale ricaviamo infine che: $mq + r = mq' + r' \implica r' = r$.
+	$$ |m(q-q')| = |r' - r| = r' - r < |m|$$
+	Affinché la disuguaglianza sia rispettata deve essere $ 0 \le |q-q'| < 1 $.
+	\\ Essendo $q, q' \in \N$, concludiamo che $q' - q = 0 \implica q' = q$.
+	\\ Dall'equazione originale ricaviamo infine che: $mq + r = mq' + r' \implica r' = r$.
 \end{proof}
 
 \section{Unicità della rappresentazione di un numero in base arbitraria}
@@ -235,8 +235,8 @@
 	Proviamo per assurdo che $r = 0$. Se fosse $r > 0$, avremmo che $r \in S$ (quindi risulterebbe che $d \ne \min S$, in quanto $d > r$). Vale:
 	\begin{align*}
 		r = n - qd & = n - q(xn+ym)                                         \\
-		           & = n - qnx - qmy                                        \\
-		           & = n\underbrace{(1-qx)}_{x'} + m\underbrace{(-qy)}_{y'}
+		& = n - qnx - qmy                                        \\
+		& = n\underbrace{(1-qx)}_{x'} + m\underbrace{(-qy)}_{y'}
 	\end{align*}
 	Allora $r \in S$, ma ciò è assurdo perché $r < d = \min S$. Quindi $r = 0$ e $d|n$. Analogamente si dimostra $d | m$.
 \end{proof}
@@ -339,11 +339,11 @@
 \begin{theorem}[Teorema cinese del resto]
 	Siano $n, m \in \N; a, b \in \Z$. Consideriamo il seguente sistema di congruenze:
 	\[
-		S = \left\{
-		\setlength\arraycolsep{2pt}
-		\begin{array}{rclc} x & \in & \Z & \\ x & \equiv &a\quad (mod\ n) &\qquad (1) \\ x & \equiv& b\quad (mod \ m)& \qquad (2)
-		\end{array}\right
-		.
+	S = \left\{
+	\setlength\arraycolsep{2pt}
+	\begin{array}{rclc} x & \in & \Z & \\ x & \equiv &a\quad (mod\ n) &\qquad (1) \\ x & \equiv& b\quad (mod \ m)& \qquad (2)
+	\end{array}\right
+	.
 	\]
 	Definiamo $Sol(S) \coloneqq \{ x \in \Z \ |\ (1), (2)$ sono verificate$\}$.
 	\\ $Sol(S) \ne \emptyset \ \sesolose$ S è compatibile $ \sesolose \ (n,m) | (a-b)$.
@@ -373,18 +373,18 @@
 	\\[1\baselineskip]$(Sol(S) \supset [c]_{[n,m]})$.
 	Sia $ c' \in [c]_{[n,m]}$, allora $c' = c + k[n,m] \pq k \in \Z$. Riscrivo il sistema come
 	\[
-		S = \left\{
-		\setlength\arraycolsep{2pt}
-		\begin{array}{rcl} [c]_n & = & [a]_n \\ \relax
-			[c]_m       & = & [b]_m
-		\end{array}\right
-		.
+	S = \left\{
+	\setlength\arraycolsep{2pt}
+	\begin{array}{rcl} [c]_n & = & [a]_n \\ \relax
+		[c]_m       & = & [b]_m
+	\end{array}\right
+	.
 	\]
 	Vale:
 	\begin{align*}
 		[c']_n & = [c + k[n,m]]_n                                                                         \\
-		       & = [c]_n + [k]_n [[n,m]]_n                                                                \\
-		       & = [a]_n + \stkout{[k]_n [0]_n} \ \ \leftarrow\scriptstyle{ \text{$[n,m]$ multiplo di n}}
+		& = [c]_n + [k]_n [[n,m]]_n                                                                \\
+		& = [a]_n + \stkout{[k]_n [0]_n} \ \ \leftarrow\scriptstyle{ \text{$[n,m]$ multiplo di n}}
 	\end{align*}
 	Con un procedimento analogo si ottiene $[c']_m = [b]_m$.
 \end{proof}
@@ -399,25 +399,25 @@
 	\begin{align*}
 		c' - c = (h' - h)n                & = (k' - k)m                            \\
 		\implica n | (c' -c),\ m|(c' - c) & \implica [n, m]|(c' - c)               \\
-		                                  & \sesolose c' \equiv c \ (mod \ [n, m]) \\
-		                                  & \sesolose c' \in [c]_{[n,m]}
+		& \sesolose c' \equiv c \ (mod \ [n, m]) \\
+		& \sesolose c' \in [c]_{[n,m]}
 	\end{align*}
 \end{proof}
 
 \section{Teorema di Fermat-Eulero e crittografia RSA}
 \textbf{Definizione} (Formula di Eulero)\textbf{.} \textit{Sia $n \in \N, n \ge 2: n = p^{m_1}_1 p^{m_2}_2 \cdots p^{m_k}_k$ con $p_1 \cdots p_k$ primi a due a due distinti. Vale:
-	\begin{align*}
-		\phi(n) & = \phi(p^{m_1}_1)\phi(p^{m_2}_2) \cdots \phi(p^{m_k}_k)                                      \\
-		        & = (p^{m_1}_1 - p^{m_1 - 1}_1) (p^{m_2}_2 - p^{m_2 - 1}_2) \cdots (p^{m_k}_k - p^{m_k - 1}_k)
-	\end{align*}
+\begin{align*}
+	\phi(n) & = \phi(p^{m_1}_1)\phi(p^{m_2}_2) \cdots \phi(p^{m_k}_k)                                      \\
+	& = (p^{m_1}_1 - p^{m_1 - 1}_1) (p^{m_2}_2 - p^{m_2 - 1}_2) \cdots (p^{m_k}_k - p^{m_k - 1}_k)
+\end{align*}
 }
 
 \renewcommand\qedsymbol{$\square$}
 \noindent\textbf{Lemma.} \textit{Siano $\alpha, \beta \in \znz$. Allora:
-	\begin{enumerate}
-		\item $\quad \forall \alpha, \beta \in \znz,\qquad(\alpha\beta)^{-1} = \beta^{-1} \alpha^{-1}$
-		\item $\quad \forall \alpha^{-1} \in \znz,\qquad (\alpha^{-1})^{-1} = \alpha $
-	\end{enumerate}
+\begin{enumerate}
+	\item $\quad \forall \alpha, \beta \in \znz,\qquad(\alpha\beta)^{-1} = \beta^{-1} \alpha^{-1}$
+	\item $\quad \forall \alpha^{-1} \in \znz,\qquad (\alpha^{-1})^{-1} = \alpha $
+\end{enumerate}
 }\begin{proof} Vale:
 	\begin{enumerate}
 		\item$ (\alpha\beta)(\beta^{-1}\alpha^{-1}) = \alpha(\beta\beta^{-1})\alpha^{-1} = \alpha[1]_n\alpha^{-1} = \alpha\alpha^{-1} = [1]_n$
@@ -453,8 +453,8 @@
 	$$\{\alpha\beta_1, \alpha\beta_2, \ldots , \alpha\beta_k\} = \{L_{\alpha}(\beta_1), L_{\alpha}(\beta_2), \ldots , L_{\alpha}(\beta_k)\}$$
 	Essendo $ L_{\alpha}$ una bigezione, ovvero una permutazione su $\znz$, abbiamo che $ L_{\alpha}(\beta_1),$ $ L_{\alpha}(\beta_2),$ $ \ldots ,$ $ L_{\alpha}(\beta_k)$ appartengono ancora a $\znz$ e possiamo scrivere, grazie alla proprietà commutativa del prodotto:
 	\[
-		\beta_1 \beta_2 \cdots \beta_k \ = \ L_{\alpha}(\beta_1) L_{\alpha}(\beta_2) \cdots L_{\alpha}(\beta_k)\
-		= \ \alpha\beta_1 \alpha\beta_2 \cdots \alpha\beta_k \ = \ \alpha^k(\beta_1 \beta_2 \cdots \beta_k)
+	\beta_1 \beta_2 \cdots \beta_k \ = \ L_{\alpha}(\beta_1) L_{\alpha}(\beta_2) \cdots L_{\alpha}(\beta_k)\
+	= \ \alpha\beta_1 \alpha\beta_2 \cdots \alpha\beta_k \ = \ \alpha^k(\beta_1 \beta_2 \cdots \beta_k)
 	\]
 	Moltiplicando a destra e a sinistra per $\beta_k^{-1} \beta_{k-1}^{-1} \cdots \beta_1^{-1}$ si ottiene:
 	$$ \alpha^k = \alpha^{\phi(n)} = 1$$
@@ -463,11 +463,11 @@
 \noindent
 \textbf{Definizione.}
 \textit{Siano $n>0, m>0$. Definiamo:
-	\begin{align*}
-		P_{m}:\quad \znz & \longrightarrow \znz        \\
-		\alpha \quad     & \longmapsto \quad\alpha^{m}
-	\end{align*}
-	ovvero $P_m(\alpha) \coloneqq \alpha^m \quad\forall \alpha \in \znz$. $P_m$ è ben definita grazie al Lemma precedente.}
+\begin{align*}
+	P_{m}:\quad \znz & \longrightarrow \znz        \\
+	\alpha \quad     & \longmapsto \quad\alpha^{m}
+\end{align*}
+ovvero $P_m(\alpha) \coloneqq \alpha^m \quad\forall \alpha \in \znz$. $P_m$ è ben definita grazie al Lemma precedente.}
 
 \begin{theorem}[Teorema fondamentale della crittografia RSA]
 	Sia $c > 0: (c, \phi(n)) <= 1$ con n fissato; $d > 0: d \in [c]_{\phi(n)}^{-1}$. \\
@@ -535,12 +535,12 @@
 \begin{proof}
 	Siano $v_1, v_2,\ldots ,v_n$ i vertici di G, $e_1, e_2,\ldots, e_k$ i lati di G (dove $k \coloneqq | \Eps |$). Sia
 	\[
-		M_{ij} \coloneqq \left\{
-		\setlength\arraycolsep{2pt}
-		\begin{array}{ccc} 0 & \qquad v_i \notin e_j & \qquad \forall i \in \{1, 2, \ldots , n\} \\ \relax
-			1       & \qquad v_i \in e_j    & \qquad \forall j \in \{1, 2, \ldots ,k \}
-		\end{array}\right
-		.
+	M_{ij} \coloneqq \left\{
+	\setlength\arraycolsep{2pt}
+	\begin{array}{ccc} 0 & \qquad v_i \notin e_j & \qquad \forall i \in \{1, 2, \ldots , n\} \\ \relax
+		1       & \qquad v_i \in e_j    & \qquad \forall j \in \{1, 2, \ldots ,k \}
+	\end{array}\right
+	.
 	\]
 	dove $i$ rappresenta l'indice sul numero dei vertici e $j$ l'indice sul numero dei lati. Vale, grazie alla proprietà commutativa delle somme:
 	$$ (1)\ \ \sum_{i=1}^n \sum_{j=1}^k m_{ij} \quad = \quad \sum_{j=1}^k\sum_{i=1}^n m_{ij}\ \ (2)$$
@@ -557,12 +557,12 @@
 \begin{proof}
 	Sia $G = \grafo$. Vale, grazie alla relazione fondamentale tra lati e gradi di un grafo:
 	\[
-		2 | \MathEps | \ =\ \sum_{v\in V} deg (v)
-		= \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ + \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
+	2 | \MathEps | \ =\ \sum_{v\in V} deg (v)
+	= \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ + \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
 	\]
 	Allora la somma dei vertici con grado dispari deve essere pari perché differenza di un numero pari e una somma di numeri pari:
 	\[
-		2 | \MathEps | - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
+	2 | \MathEps | - \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) pari}} \ = \ \underbrace{\sum_{v\in V} deg (v)}_{\text{deg(v) dispari}}
 	\]
 	e ciò accade solo se il numero di elementi dispari sommati è pari.
 \end{proof}
